@@ -863,15 +863,15 @@ button.setup[data-n]:not([data-n=""])::after{content:" 💬" attr(data-n)}
         : list.length ? list.map(c => `<div class="cm"><b>${esc(c.name)}</b> <small>${new Date(c.ts).toLocaleString("vi-VN")}</small><p>${esc(c.text).replace(/\n/g, "<br>")}</p></div>`).join("")
         : '<p class="src"><i>Chưa có bình luận cho ô này.</i></p>')
       + `<textarea id="cm-text" maxlength="2000" placeholder="Góp ý cho ô này…"></textarea>
-         <div class="row"><input id="cm-name" maxlength="60" placeholder="Tên của bạn" autocomplete="name">
+         <div class="row"><input id="cm-name" maxlength="60" placeholder="Tên (không bắt buộc)" autocomplete="name">
          ${window.CM_CODE ? "" : '<input id="cm-code" type="password" placeholder="Mã nhóm" autocomplete="off">'}<button id="cm-send" type="button">Gửi</button></div><p id="cm-msg"></p>`;
     const $ = id => document.getElementById(id);
     $("cm-text").value = draft;
     $("cm-name").value = localStorage.cmName || "";
     if ($("cm-code")) $("cm-code").value = localStorage.cmCode || "";
     $("cm-send").onclick = async () => {
-      const d = {key, name: $("cm-name").value.trim(), text: $("cm-text").value.trim(), code: window.CM_CODE || $("cm-code").value.trim()};
-      if (!d.name || !d.text || !d.code) { $("cm-msg").textContent = window.CM_CODE ? "Cần nhập nội dung và tên." : "Cần nhập nội dung, tên và mã nhóm."; return; }
+      const d = {key, name: $("cm-name").value.trim() || "Ẩn danh", text: $("cm-text").value.trim(), code: window.CM_CODE || $("cm-code").value.trim()};
+      if (!d.name || !d.text || !d.code) { $("cm-msg").textContent = window.CM_CODE ? "Cần nhập nội dung." : "Cần nhập nội dung và mã nhóm."; return; }
       $("cm-send").disabled = true; $("cm-msg").textContent = "Đang gửi…";
       try {
         const raw = await (await fetch(URL_, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(d)})).text();
@@ -880,7 +880,7 @@ button.setup[data-n]:not([data-n=""])::after{content:" 💬" attr(data-n)}
           throw new Error("Máy chủ bình luận lỗi: " + ((raw.match(/Exception: ([^<]*)/) || [])[1] || "phản hồi không hợp lệ"));
         }
         if (!j.ok) throw new Error(j.error || "Gửi thất bại");
-        localStorage.cmName = d.name; if (!window.CM_CODE) localStorage.cmCode = d.code;
+        localStorage.cmName = $("cm-name").value.trim(); if (!window.CM_CODE) localStorage.cmCode = d.code;
         ALL.push(j.comment); $("cm-text").value = ""; paint(); box(key);
       } catch (e) {
         if (/mã nhóm/i.test(e.message)) localStorage.removeItem("cmCode");
