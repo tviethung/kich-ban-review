@@ -863,11 +863,11 @@ button.setup[data-n]:not([data-n=""])::after{content:" 💬" attr(data-n)}
         : list.length ? list.map(c => `<div class="cm"><b>${esc(c.name)}</b> <small>${new Date(c.ts).toLocaleString("vi-VN")}</small><p>${esc(c.text).replace(/\n/g, "<br>")}</p></div>`).join("")
         : '<p class="src"><i>Chưa có bình luận cho ô này.</i></p>')
       + `<textarea id="cm-text" maxlength="2000" placeholder="Góp ý cho ô này…"></textarea>
-         <div class="row"><input id="cm-name" maxlength="60" placeholder="Tên (không bắt buộc)" autocomplete="name">
+         <div class="row"><input id="cm-name" maxlength="60" placeholder="Tên (để trống = Ẩn danh)" autocomplete="name">
          ${window.CM_CODE ? "" : '<input id="cm-code" type="password" placeholder="Mã nhóm" autocomplete="off">'}<button id="cm-send" type="button">Gửi</button></div><p id="cm-msg"></p>`;
     const $ = id => document.getElementById(id);
     $("cm-text").value = draft;
-    $("cm-name").value = localStorage.cmName || "";
+    $("cm-name").value = localStorage.cmName || "Ẩn danh";
     if ($("cm-code")) $("cm-code").value = localStorage.cmCode || "";
     $("cm-send").onclick = async () => {
       const d = {key, name: $("cm-name").value.trim() || "Ẩn danh", text: $("cm-text").value.trim(), code: window.CM_CODE || $("cm-code").value.trim()};
