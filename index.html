@@ -874,7 +874,11 @@ button.setup[data-n]:not([data-n=""])::after{content:" 💬" attr(data-n)}
       if (!d.name || !d.text || !d.code) { $("cm-msg").textContent = "Cần nhập nội dung, tên và mã nhóm."; return; }
       $("cm-send").disabled = true; $("cm-msg").textContent = "Đang gửi…";
       try {
-        const j = await (await fetch(URL_, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(d)})).json();
+        const raw = await (await fetch(URL_, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(d)})).text();
+        let j;
+        try { j = JSON.parse(raw); } catch (_) {  // Apps Script trả trang HTML lỗi khi script ném exception
+          throw new Error("Máy chủ bình luận lỗi: " + ((raw.match(/Exception: ([^<]*)/) || [])[1] || "phản hồi không hợp lệ"));
+        }
         if (!j.ok) throw new Error(j.error || "Gửi thất bại");
         localStorage.cmName = d.name; localStorage.cmCode = d.code;
         ALL.push(j.comment); $("cm-text").value = ""; paint(); box(key);
