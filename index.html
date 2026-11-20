@@ -1095,6 +1095,9 @@ button.setup[data-n]:not([data-n=""])::after{content:" 💬" attr(data-n)}
     const $ = id => document.getElementById(id);
     $("cm-text").value = draft;
     $("cm-name").value = localStorage.cmName || "Ẩn danh";
+    let justFocused = false;  // bấm vào ô tên là chọn hết → gõ đè tên mới ngay
+    $("cm-name").onfocus = e => { e.target.select(); justFocused = true; };
+    $("cm-name").onmouseup = e => { if (justFocused) e.preventDefault(); justFocused = false; };  // chỉ giữ vùng chọn ở cú bấm đầu
     if ($("cm-code")) $("cm-code").value = localStorage.cmCode || "";
     $("cm-send").onclick = async () => {
       const d = {key, name: $("cm-name").value.trim() || "Ẩn danh", text: $("cm-text").value.trim(), code: window.CM_CODE || $("cm-code").value.trim()};
