@@ -141,8 +141,9 @@ flowchart TD
     P2C3 -->|"3B · Bấm nút xóa ký ức Cố Hoài để ép mở khóa cổng đăng xuất"| P2E4(["EARLY DELETION END · Lệnh Xóa Tại Giếng Cổ"])
 
     P2S4 --> P2C4{"LỰA CHỌN 4: Cánh cổng sụp đổ"}
-    P2C4 -->|"4A (Nếu từng chân thành 1B/2A) · Đưa thẻ chứa ý thức anh qua cổng thật"| P2E1(["TRUE ENDING · Bình Minh Ngoài Kịch Bản"])
-    P2C4 -->|"4A (Nếu từng lừa gạt 1A + 2B) · Bị anh đẩy ngược qua cổng ở lại chịu reset"| P2E2(["TRAGIC RESET · Người Chơi Thứ 100"])
+    P2C4 -->|"4A · Nắm tay Cố Hoài lao qua cổng, mang theo thẻ ý thức của anh"| P2CHK{"Kiểm tra: từng chân thành ở 1B hoặc 2A?"}
+    P2CHK -->|"Có 1B hoặc 2A · Đưa thẻ chứa ý thức anh qua cổng thật"| P2E1(["TRUE ENDING · Bình Minh Ngoài Kịch Bản"])
+    P2CHK -->|"Lừa gạt cả hai lần 1A + 2B · Bị anh đẩy ngược qua cổng ở lại chịu reset"| P2E2(["TRAGIC RESET · Người Chơi Thứ 100"])
     P2C4 -->|"4B · Đập vỡ cổng đăng xuất, tắt nguồn ngoài để ở lại cùng anh dựng lại cổ trấn"| P2E3(["OVERLORD ENDING · Chủ Nhân Mới Của Cổ Trấn"])
 ```
 
@@ -257,7 +258,7 @@ flowchart TD
     P3C4 -->|"4A (Khi đi 2A + 3A) · Cùng nắm hai tay chia đôi nhịp đập đúng 00:00"| P3E1(["TRUE ENDING · Chia Đôi Nhịp Đập"])
     P3C4 -->|"4B (Khi giấu ở 1A/2B và chọn 3A) · Tháo đồng hồ cắt đứt giao ước rồi biến mất"| P3E2(["SACRIFICE ENDING · Giây Cuối Trên Tháp Đồng Hồ"])
     P3C4 -->|"4C (Khi chọn 3B hút cạn vận may) · Giữ chặt nguồn sống mặc anh hôn mê"| P3E3(["DARK PARASITE END · Đồng Hồ Không Dừng"])
-    P3C4 -->|"4D (Khi đi 1B + 2A) · Lập hẹn mỗi đầu mùa đông chỉ chạm một lần giữ mạng"| P3E4(["BITTERSWEET ENDING · Hẹn Gặp Mỗi Mùa Đông"])
+    P3C4 -->|"4D (Luôn mở) · Dừng ở giới hạn an toàn, hẹn mỗi đầu mùa đông chỉ chạm một lần giữ mạng"| P3E4(["BITTERSWEET ENDING · Hẹn Gặp Mỗi Mùa Đông"])
 ```
 
 ### Tuyến nhân vật & Đạo cụ
@@ -332,7 +333,7 @@ Nếu mỗi lần chạm vào tôi cô sống thêm một ngày... sao không th
 * **Lựa chọn 4A** *(Khả dụng khi đã thành thật ở `2A` và kiềm chế không hút ở `3A`)*: **Vươn cả hai bàn tay nắm lấy tay Khúc Nguyên đúng giây chuông giao thừa ngân vang.**
 * **Lựa chọn 4B** *(Khi từng giấu ở `1A`/`2B` nhưng kịp dừng lại ở `3A`)*: **Lắc đầu đẩy anh lùi về phía cầu thang, tự tháo chiếc đồng hồ kỷ vật bỏ lại rồi khép mắt đón tiếng chuông cuối.**
 * **Lựa chọn 4C** *(Khi đã chọn `3B` hút cạn vận may của anh)*: **Siết chặt cổ tay anh không buông để khóa chặt dãy số bất tận về phần mình.**
-* **Lựa chọn 4D** *(Khả dụng khi đi `1B + 2A` giữ giới hạn an toàn)*: **Chỉ đặt đầu ngón tay chạm khẽ một giây đủ giữ mạng rồi lùi lại, lập giao ước mỗi năm chỉ gặp nhau một lần đầu mùa đông.**
+* **Lựa chọn 4D** *(Luôn mở — kể cả khi đã lỡ hút ở `3B`, cô vẫn có thể dừng lại ở giới hạn an toàn)*: **Chỉ đặt đầu ngón tay chạm khẽ một giây đủ giữ mạng rồi lùi lại, lập giao ước mỗi năm chỉ gặp nhau một lần đầu mùa đông.**
 
 ---
 

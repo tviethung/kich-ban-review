@@ -31,9 +31,9 @@ flowchart TD
     B3C --> S4
 
     S4 --> C4{"LỰA CHỌN 4: Phán quyết cuối cùng trước cửa nhà kho"}
-    C4 -->|"4A (Nếu đi 3A hợp tác) · Khống chế hung thủ thật, nộp máy ghi âm lời thú tội"| E1(["ENDING 1 · Hôn Nhân Được Cứu"])
-    C4 -->|"4B (Từ 3C hoặc giữ chuẩn luật) · Tự tay còng tay chồng giao nộp"| E2(["ENDING 2 · Chiếc Còng Trên Tay Chồng"])
-    C4 -->|"4C (Từ 1A hoặc 3B) · Ném thẻ cảnh sát xuống mưa, cùng chồng trốn biệt tích"| E3(["ENDING 3 · Biến Mất Trong Màn Mưa"])
+    C4 -->|"4A (Có bằng chứng: ghi âm ở 3A hoặc ảnh hung khí đã gửi ở 3C) · Khống chế hung thủ thật, giao bằng chứng cho Thôi Minh"| E1(["TRUE ENDING · Hôn Nhân Được Cứu"])
+    C4 -->|"4B · Tự tay còng tay chồng giao nộp"| E2(["ENDING 2 · Chiếc Còng Trên Tay Chồng"])
+    C4 -->|"4C (Từ 1A hoặc 3B; khóa nếu đã báo Thôi Minh ở 3C) · Ném thẻ cảnh sát xuống mưa, cùng chồng trốn biệt tích"| E3(["ENDING 3 · Biến Mất Trong Màn Mưa"])
     C4 -->|"4D (Nếu đã hủy chứng cứ ở 3B) · Đổi lời khai & giấu hung khí che chở gia đình chồng"| E4(["ENDING 4 · Đồng Phạm Trong Bóng Tối"])
 ```
 
@@ -106,16 +106,16 @@ Mưa tạt rát mái tôn nhà kho bỏ hoang. Bị dồn tới đường cùng,
 Hiền Tú không chút chần chừ lao chắn trước lưỡi dao, một tay ghìm chặt cổ tay hung thủ ngay giữa khoang đèn pha chói lòa. Tiếng còi xe đặc nhiệm vang dội sát bậc cửa.
 
 **[ĐIỂM LỰA CHỌN 4 — Lựa chọn cuối cùng khi cửa kho bật tung]**
-* **Lựa chọn 4A** *(Khả dụng khi đi `3A` hợp tác dựng bẫy và không hủy bằng chứng ở `3B`)*: **Cùng Hiền Tú quật ngã hung thủ thật, chìa chiếc máy ghi âm trọn vẹn lời thú tội ra trước mặt Đội trưởng Thôi Minh.**
+* **Lựa chọn 4A** *(Khả dụng khi có bằng chứng: máy ghi âm từ bẫy `3A`, hoặc ảnh bật lửa hung khí đã gửi Thôi Minh ở `3C`; không mở nếu đã hủy chứng cứ ở `3B`)*: **Cùng Hiền Tú quật ngã hung thủ thật ngay trước đèn pha xe cảnh sát, chìa bằng chứng — lời thú tội trong máy ghi âm hoặc bức ảnh bật lửa khắc dấu hung khí — ra trước mặt Đội trưởng Thôi Minh.**
 * **Lựa chọn 4B (Bước tới khóa chiếc còng thép lên cổ tay Hiền Tú, chính thức đọc lệnh bắt giữ tội tráo danh tính và che giấu 15 năm):** Đặt cán cân công lý lên trên tình cảm vợ chồng.
-* **Lựa chọn 4C** *(Khả dụng từ `1A` hoặc `3B` khi còn đường lui)*: **Tháo thẻ ngành cảnh sát ném xuống vũng nước mưa, kéo Hiền Tú leo lên chiếc xe tải hàng nổ máy trốn khỏi thành phố.**
+* **Lựa chọn 4C** *(Khả dụng từ `1A` hoặc `3B` khi còn đường lui — khóa nếu đã báo Thôi Minh vây kho ở `3C`)*: **Tháo thẻ ngành cảnh sát ném xuống vũng nước mưa, kéo Hiền Tú leo lên chiếc xe tải hàng nổ máy trốn khỏi thành phố.**
 * **Lựa chọn 4D** *(Chỉ mở khi đã xóa băng và giấu chứng cứ ở `3B`)*: **Nhanh tay đá chiếc bật lửa hung khí vào gầm máy cũ, tự sửa lời khai hiện trường để giữ trọn bình yên cho cả gia đình chồng.**
 
 ---
 
 ### HỆ THỐNG KẾT CỤC (4 ENDINGS)
 
-* **ENDING 1 · HÔN NHÂN ĐƯỢC CỨU *(Chọn `4A` từ nhánh `3A`)*:** Hung thủ thật sa lưới với đầy đủ băng ghi âm thú tội, Hiền Tú được minh oan án sát nhân 15 năm trước và chỉ chịu án nhẹ về giấy tờ. Rời khỏi trại giam vào buổi sáng nắng nhẹ, anh giơ bàn tay không còn che giấu nắm chặt lấy tay Chi Nguyên trở về nhà.
+* **TRUE ENDING · HÔN NHÂN ĐƯỢC CỨU *(Chọn `4A` từ nhánh `3A` hoặc `3C`)*:** Hung thủ thật sa lưới với đầy đủ bằng chứng (băng ghi âm thú tội ở `3A`, hoặc ảnh bật lửa hung khí cùng cảnh hắn vung dao trước mặt cảnh sát ở `3C`), Hiền Tú được minh oan án sát nhân 15 năm trước và chỉ chịu án nhẹ về giấy tờ. Rời khỏi trại giam vào buổi sáng nắng nhẹ, anh giơ bàn tay không còn che giấu nắm chặt lấy tay Chi Nguyên trở về nhà.
 * **ENDING 2 · CHIẾC CÒNG TRÊN TAY CHỒNG *(Chọn `4B`)*:** Chi Nguyên tự tay trao chồng cho tổ công tác của Thôi Minh giữa cơn mưa tầm tã. Hiền Tú không oán trách nửa lời, chỉ lặng lẽ quay nhìn theo bóng áo cảnh sát của cô lần cuối qua khung cửa xe đặc chủng.
 * **ENDING 3 · BIẾN MẤT TRONG MÀN MƯA *(Chọn `4C`)*:** Tiếng còi cảnh sát xa dần sau gương chiếu hậu. Trên cung đường đèo hướng ra cảng biển lúc rạng sáng, hai người vứt bỏ toàn bộ thẻ ngành lẫn giấy tờ giả xuống khe vực, cùng nhau biến mất khỏi cuộc đời cũ không ngày trở lại.
 * **ENDING 4 · ĐỒNG PHẠM TRONG BÓNG TỐI *(Chọn `4D` từ nhánh `3B`)*:** Hồ sơ hiện trường được Chi Nguyên hợp thức hóa gọn ghẽ để khép lại cuộc điều tra. Đêm trở về nhà họ Bạch dưới ánh đèn vàng ấm áp, hai vợ chồng ngồi đối diện nhau bên mâm cơm — giữa họ là chiếc hộp thiếc khóa chặt vĩnh viễn dưới đáy hầm.

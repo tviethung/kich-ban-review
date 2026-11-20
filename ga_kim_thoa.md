@@ -24,15 +24,15 @@ flowchart TD
     B2B --> S4
 
     S4 --> C3{"LỰA CHỌN 3: Tự mở đường máu hay Gọi người của Nhược Trâm?"}
-    C3 -->|"3A · Đẩy Yến Lãng vào lối hầm, cầm Kim Thoa ra sân dụ sát thủ"| CHK3A{"Kiểm tra lòng tin Thế tử ở SC02"}
-    CHK3A -->|"Nếu đi 1A (Không biết bẫy)"| E_TRAGIC(["ENDING 3 · Bi Kịch: Yến Lãng lao ra đỡ tên độc chết thay nàng"])
-    CHK3A -->|"Nếu đi 1B (Hiểu ám hiệu)"| S5["SC05 · Tộc đường Ngụy phủ: Vạch tội Ngụy Chấn · Ấn đồng rơi giữa thềm"]
+    C3 -->|"3A · Đẩy Yến Lãng vào lối hầm, cầm Kim Thoa ra sân dụ sát thủ"| CHK3A{"Kiểm tra: Yến Lãng có biết đây là bẫy? (1B, hoặc Chu ma ma báo tin nhờ 2B)"}
+    CHK3A -->|"Đi 1A + 2A · Không ai báo, Yến Lãng tưởng cô nộp mạng"| E_TRAGIC(["ENDING 3 · Bi Kịch: Yến Lãng lao ra đỡ tên độc chết thay nàng"])
+    CHK3A -->|"Đi 1B, hoặc 2B (Chu ma ma chạy báo ám hiệu)"| S5["SC05 · Tộc đường Ngụy phủ: Vạch tội Ngụy Chấn · Ấn đồng rơi giữa thềm"]
     C3 -->|"3B · Mở cửa hậu gọi người của Nhược Trâm vào đánh úp"| CHK3B{"Kiểm tra liên minh ở SC03"}
     CHK3B -->|"Nếu đã liên minh 2A"| S5
     CHK3B -->|"Nếu từ chối ở 2B (Bẫy phản bội)"| E_EARLY(["EARLY ENDING · Con Tốt Bị Thí"])
 
     S5 --> C4{"LỰA CHỌN 4: Chọn bản ngã của chính mình"}
-    C4 -->|"4A (Khi đi 1B) · Trao sổ cho triều đình, cùng Yến Lãng về thân phận thật"| E1(["ENDING 1 · Hạnh Phúc: Đôi Trâm Hợp Bích"])
+    C4 -->|"4A (Khi đi 1B) · Trao sổ cho triều đình, cùng Yến Lãng về thân phận thật"| E1(["TRUE ENDING · Hạnh Phúc: Đôi Trâm Hợp Bích"])
     C4 -->|"4B · Vạch trần trọn gia tộc trước trưởng lão, giành lại quyền thừa kế"| E2(["ENDING 2 · Báo Thù: Kim Thoa Chính Danh"])
     C4 -->|"4C · Lật kèo đá Nhược Trâm, nhặt ấn đồng làm gia chủ & bỏ rơi Thế tử"| E4(["ENDING 4 · Phản Diện: Nữ Chủ Phủ Ngụy"])
 ```
@@ -115,7 +115,8 @@ Dưới ánh đèn dầu, A Đàn tháo vòng chỉ đen trên cổ tay trái l�
 
 #### NHÁNH 3A
 * *(Nếu đi `1B` — Yến Lãng hiểu ám hiệu tin tưởng)*: Yến Lãng lập tức theo lối hầm vòng sau lưng dẫn đội hộ vệ ập vào khống chế toàn bộ sát thủ Ngụy Chấn, giữ chặt A Đàn lành lặn bước tới ngày đối chất.
-* *(Nếu đi `1A` — Yến Lãng còn nghi kỵ nên tưởng cô ra sân nộp mạng)*: Chàng lao vọt ra chắn ngang trước người cô, lãnh trọn mũi tên độc tẩm tên nỏ bắn từ trên mái xuống ➔ **ENDING 3 (Bi kịch)**.
+* *(Nếu đi `1A` nhưng đã ép Chu ma ma khai ở `2B`)*: Chu ma ma — giờ đã đứng về phía A Đàn — lén chạy vòng hậu viện báo cho Yến Lãng biết cô chỉ đang làm mồi nhử; chàng nén lòng theo lối hầm dẫn hộ vệ ập vào khống chế sát thủ ➔ sang **SC05**.
+* *(Nếu đi `1A` + `2A` — Yến Lãng còn nghi kỵ, không ai báo tin nên tưởng cô ra sân nộp mạng)*: Chàng lao vọt ra chắn ngang trước người cô, lãnh trọn mũi tên độc tẩm tên nỏ bắn từ trên mái xuống ➔ **ENDING 3 (Bi kịch)**.
 
 #### NHÁNH 3B
 * *(Nếu đi `2A` — đã liên minh)*: Toán người của Nhược Trâm ập vào từ cửa hậu đánh tan sát thủ của Ngụy Chấn, giao nộp toàn bộ chứng từ sổ sách Ngụy phủ ➔ sang **SC05**.
@@ -139,7 +140,7 @@ Phía ngoài cửa tộc đường, Yến Lãng đứng đợi dưới nắng s�
 ### HỆ THỐNG KẾT CỤC (5 ENDINGS)
 
 * **EARLY ENDING · CON TỐT BỊ THÍ *(Đi `2B` rồi gọi Nhược Trâm ở `3B`)*:** Không bắt tay trước nhưng lại mở cửa hậu đón người của Nhược Trâm khiến A Đàn bị gán tội phản bội ngay trong sân phủ Hầu, mất sạch cả cơ hội tự minh oan.
-* **ENDING 1 · HẠNH PHÚC: ĐÔI TRÂM HỢP BÍCH *(Chọn `4A` khi đi `1B`)*:** Thân phận Ngụy Quân Đàn được khôi phục trong sự bảo hộ vững chắc của Trấn Bắc Hầu. Yến Lãng đặt chiếc trâm mới chạm đôi phượng lên bàn trang điểm thay cây Kim Thoa gãy cánh, cùng cô mở trang mới bên mẹ nuôi khỏe mạnh.
+* **TRUE ENDING · HẠNH PHÚC: ĐÔI TRÂM HỢP BÍCH *(Chọn `4A` khi đi `1B`)*:** Thân phận Ngụy Quân Đàn được khôi phục trong sự bảo hộ vững chắc của Trấn Bắc Hầu. Yến Lãng đặt chiếc trâm mới chạm đôi phượng lên bàn trang điểm thay cây Kim Thoa gãy cánh, cùng cô mở trang mới bên mẹ nuôi khỏe mạnh.
 * **ENDING 2 · BÁO THÙ: KIM THOA CHÍNH DANH *(Chọn `4B`)*:** Trưởng lão tuyên phạt Ngụy Chấn và trục xuất Nhược Trâm khỏi gia phả ngay trước từ đường. A Đàn thu hồi toàn bộ ruộng đất cửa hiệu Ngụy gia, đường hoàng kế thừa vị trí đích nữ thật sự.
-* **ENDING 3 · BI KỊCH: BÓNG HẦU TRONG ĐÊM SƯƠNG *(Đi `1A` rồi chọn `3A`)*:** Vì không biết cô chỉ giả làm mồi nhử, Yến Lãng lao ra đỡ trọn mũi tên độc giữa sân thư phòng. Chàng mỉm cười chạm khẽ vào vết chai thợ nhuộm trên tay cô trước khi khép mắt mãi mãi; A Đàn giữ lại danh vị Thế tử phi góa bụa cùng cây Kim Thoa gãy suốt phần đời còn lại.
+* **ENDING 3 · BI KỊCH: BÓNG HẦU TRONG ĐÊM SƯƠNG *(Đi `1A` + `2A` rồi chọn `3A`)*:** Vì không biết cô chỉ giả làm mồi nhử, Yến Lãng lao ra đỡ trọn mũi tên độc giữa sân thư phòng. Chàng mỉm cười chạm khẽ vào vết chai thợ nhuộm trên tay cô trước khi khép mắt mãi mãi; A Đàn giữ lại danh vị Thế tử phi góa bụa cùng cây Kim Thoa gãy suốt phần đời còn lại.
 * **ENDING 4 · PHẢN DIỆN: NỮ CHỦ PHỦ NGỤY *(Chọn `4C`)*:** A Đàn tự tay đeo ấn đồng gia chủ, ép Nhược Trâm ký giấy bán đứt phần sản nghiệp cuối cùng rồi đặt tờ từ hôn lên ngực áo Yến Lãng giữa hành lang nắng gắt. Đứng trên bậc thềm phủ Ngụy rộng lớn một mình, cô nắm trọn quyền lực gia tộc mà không cần bất kỳ người đàn ông nào che chở.
