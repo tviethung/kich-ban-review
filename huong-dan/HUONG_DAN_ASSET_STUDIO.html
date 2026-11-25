@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asset Studio — Hướng dẫn sử dụng</title>
+<link rel="stylesheet" href="huong_dan_assets/guide.css">
+<style>
+.shotfig{position:relative;margin:14px 0 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:#000;line-height:0}
+.shotfig img{width:100%;height:auto;display:block}
+.pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 13px/26px var(--mono);text-align:center;box-shadow:0 0 0 3px rgba(11,13,16,.85),0 2px 8px rgba(0,0,0,.6);pointer-events:none}
+.legend{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;font-size:14.5px}
+.legend li{display:flex;gap:10px;align-items:flex-start;padding:4px 0}
+.legend .pn{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 12px/22px var(--mono);text-align:center;margin-top:1px}
+.asks{margin-top:18px} .asks .k{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+.status{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.status>div{padding:14px 16px;border-right:1px solid var(--line);font-size:14px} .status>div:last-child{border-right:0}
+.status b{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.status i{width:8px;height:8px;border-radius:50%;display:inline-block}
+aside a.ext span{color:var(--accent)}
+@media (max-width:800px){.legend,.status{grid-template-columns:1fr}.status>div{border-right:0;border-bottom:1px solid var(--line)}.pin{width:18px;height:18px;font-size:10px;line-height:18px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside>
+  <div class="brand">Asset Studio</div>
+  <div class="brand-sub">Hướng dẫn sử dụng · ảnh từ tập GM31</div>
+  <a href="HUONG_DAN_NGUOI_MOI.html" class="ext"><span>←</span>Quy trình 10 bước</a>
+  <div class="navgrp"><i style="background:var(--accent)"></i>Bắt đầu</div>
+  <a href="#mo"><span>·</span>Mở &amp; quyền</a><a href="#trang-thai"><span>·</span>Trạng thái</a>
+  <div class="navgrp"><i style="background:var(--pB)"></i>Từng màn hình</div>
+  <a href="#00-tong-quan"><span>00</span>Màn hình chính & cách chọn tập</a><a href="#02-kich-ban"><span>01</span>Tab Kịch bản</a><a href="#03-tham-chieu"><span>02</span>Ngăn chi tiết một ảnh tham chiếu</a><a href="#04-phong-to"><span>03</span>Xem phóng to & đối chiếu</a><a href="#05-keyframes"><span>04</span>Tab Keyframes</a><a href="#06-vo"><span>05</span>Tab VO / Thoại</a><a href="#07-shots"><span>06</span>Tab Shots</a><a href="#08-chi-tiet-shot"><span>07</span>Chi tiết shot</a><a href="#09-hau-ky"><span>08</span>Tab Hậu kỳ / Cảnh</a>
+</aside>
+<main>
+<header id="mo">
+  <div class="eyebrow">Công cụ xem tài nguyên · http://192.168.250.45:5178</div>
+  <h1>Asset Studio: xem và soát mọi thứ của một tập</h1>
+  <p class="lede">Asset Studio gom toàn bộ tài nguyên của một tập vào một chỗ: kịch bản, ảnh tham chiếu, keyframe, giọng đọc, clip và video hậu kỳ. Các tab đi từ trái sang phải <b class="w">đúng thứ tự quy trình</b>. Ảnh minh họa trong trang này chụp từ tập GM31, tập đã làm xong cả quy trình.</p>
+  <div class="note n-warn"><b class="lab">Máy khác chỉ xem</b>Đăng nhập bằng user <code>gplay</code>. Từ máy khác trong LAN, bạn xem được mọi thứ, nhưng các nút <b class="w">Gen / Duyệt / Lưu prompt</b> sẽ báo <i>"Máy LAN chỉ được xem"</i>. Lý do: các nút này mất thêm chi phí và ghi file. Muốn làm thì chép lệnh ngắn ở mỗi phần rồi gõ cho Hermes trên dashboard.</div>
+</header>
+
+<section class="blk" id="trang-thai">
+  <div class="shd"><span class="tagp">REF</span><h2>Đọc trạng thái</h2></div>
+  <p class="goal">Mỗi ảnh hoặc file giọng có một nhãn trạng thái. Thanh lọc ở mỗi tab dùng đúng các nhãn này.</p>
+  <div class="status">
+    <div><b><i style="background:var(--stop)"></i>Thiếu</b><br>Chưa có file. Cần sinh.</div>
+    <div><b><i style="background:var(--accent)"></i>Chờ duyệt</b><br>Đã có bản nháp, đang chờ người xem.</div>
+    <div><b><i style="background:var(--ok)"></i>Đã duyệt</b><br>Bản chính thức, các bước sau sẽ dùng bản này.</div>
+    <div><b><i style="background:#a9bdf3"></i>⟳ Đổi prompt</b><br>Prompt đã đổi sau khi sinh, ảnh cũ không còn khớp. Cần sinh lại.</div>
+  </div>
+</section>
+
+<section class="blk" id="00-tong-quan">
+  <div class="shd"><span class="tagp">00</span><h2>Màn hình chính & cách chọn tập</h2></div>
+  <p class="goal">Mọi tab dùng chung một khung: bên trái là danh sách tập, phía trên là thông tin tập và các tab xếp theo thứ tự quy trình.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/03_tab_tham_chieu.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/03_tab_tham_chieu.jpg" alt="Màn hình chính &amp; cách chọn tập" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:9.03%;top:11.89%">1</span><span class="pin" style="left:2.78%;top:25.22%">2</span><span class="pin" style="left:20.83%;top:2.67%">3</span><span class="pin" style="left:36.11%;top:14.78%">4</span><span class="pin" style="left:29.17%;top:19.56%">5</span><span class="pin" style="left:28.47%;top:28.11%">6</span><span class="pin" style="left:51.04%;top:28.11%">7</span><span class="pin" style="left:67.71%;top:28.11%">8</span><span class="pin" style="left:95.28%;top:28.11%">9</span><span class="pin" style="left:22.92%;top:38.44%">10</span><span class="pin" style="left:23.19%;top:42.67%">11</span><span class="pin" style="left:30.14%;top:64.67%">12</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Tìm tập theo tên hoặc mã; lọc theo mức ưu tiên P1–P3.</span></li><li><span class="pn">2</span><span>Danh sách tập: bấm vào một tập để mở.</span></li><li><span class="pn">3</span><span>Mã tập (GM31), tên tiếng Việt và chế độ góc máy.</span></li><li><span class="pn">4</span><span>Thanh tiến độ của cả tập: <b>đã duyệt</b> · <b>chờ duyệt</b> · <b>thiếu</b>.</span></li><li><span class="pn">5</span><span>Các tab, đi từ trái sang phải đúng thứ tự làm việc. Số bên cạnh là số mục trong tab.</span></li><li><span class="pn">6</span><span>Tìm nhanh theo tên hoặc mã shot.</span></li><li><span class="pn">7</span><span>Lọc theo trạng thái (xem bảng ở trên).</span></li><li><span class="pn">8</span><span>Xem phóng to lần lượt mọi ảnh, so với prompt.</span></li><li><span class="pn">9</span><span>Nút sinh hàng loạt: chỉ dùng được trên máy chủ. Máy khác thì nhắn Hermes.</span></li><li><span class="pn">10</span><span>Nhóm theo nhân vật / bối cảnh / đạo cụ; <code>0/3</code> = số ảnh đã duyệt.</span></li><li><span class="pn">11</span><span>Nhãn trạng thái của từng ảnh.</span></li><li><span class="pn">12</span><span>Kính lúp: xem ảnh cỡ lớn.</span></li></ol>
+  
+</section>
+<section class="blk" id="02-kich-ban">
+  <div class="shd"><span class="tagp">01</span><h2>Tab Kịch bản: đọc truyện và sơ đồ nhánh</h2><span class="rt">Sau bước 04</span></div>
+  <p class="goal">Xem lại cốt truyện, các cờ và toàn bộ sơ đồ nhánh của tập. Tab này chỉ để đọc.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/02_tab_kich_ban.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/02_tab_kich_ban.jpg" alt="Tab Kịch bản: đọc truyện và sơ đồ nhánh" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:20.83%;top:27.00%">1</span><span class="pin" style="left:76.25%;top:27.00%">2</span><span class="pin" style="left:76.25%;top:37.78%">3</span><span class="pin" style="left:43.40%;top:49.00%">4</span><span class="pin" style="left:57.50%;top:49.00%">5</span><span class="pin" style="left:20.83%;top:53.00%">6</span><span class="pin" style="left:62.85%;top:57.78%">7</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Tóm tắt cốt truyện và câu hỏi kịch tính của tập.</span></li><li><span class="pn">2</span><span>Cờ manh mối: tên cờ và câu gợi ý khi lựa chọn đang bị khóa.</span></li><li><span class="pn">3</span><span>Tổng quan: số cảnh, shot, góc cắt, kết cục.</span></li><li><span class="pn">4</span><span>Chọn một lộ trình để tô sáng đúng đường chơi đó trên sơ đồ.</span></li><li><span class="pn">5</span><span>Bật/tắt bản tiếng Anh gốc bên cạnh tiếng Việt.</span></li><li><span class="pn">6</span><span>Màu của node: nút chính · điều tra · nhánh chiến thuật · kết thúc · cần cờ. Nét đứt = quay lại.</span></li><li><span class="pn">7</span><span>Mỗi ô là một cảnh (node): mã cảnh và thời lượng. Bấm vào để xem các lựa chọn và shot.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Sửa cảnh S01 tập &lt;NN&gt;: …</pre></div></div>
+</section>
+<section class="blk" id="03-tham-chieu">
+  <div class="shd"><span class="tagp">02</span><h2>Ngăn chi tiết một ảnh tham chiếu</h2><span class="rt">Bước 05</span></div>
+  <p class="goal">Bấm vào một ảnh bất kỳ (tab Tham chiếu hoặc Keyframes) để mở ngăn này: xem prompt, các bản đã sinh và bản đang dùng.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/04_ngan_chi_tiet_anh.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/04_ngan_chi_tiet_anh.jpg" alt="Ngăn chi tiết một ảnh tham chiếu" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:55.21%;top:3.89%">1</span><span class="pin" style="left:92.71%;top:2.78%">2</span><span class="pin" style="left:54.03%;top:10.56%">3</span><span class="pin" style="left:50.00%;top:17.00%">4</span><span class="pin" style="left:51.74%;top:42.11%">5</span><span class="pin" style="left:51.39%;top:95.78%">6</span><span class="pin" style="left:65.97%;top:95.78%">7</span><span class="pin" style="left:95.69%;top:95.78%">8</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Tên ảnh và đường dẫn file trong tập.</span></li><li><span class="pn">2</span><span>Trạng thái hiện tại.</span></li><li><span class="pn">3</span><span>Ảnh tham chiếu đầu vào dùng để sinh ảnh này (ảnh mặt gốc chỉ có prompt).</span></li><li><span class="pn">4</span><span>Prompt đã dùng để sinh ảnh. Muốn đổi thì nhắn Hermes.</span></li><li><span class="pn">5</span><span>Các bản đã sinh. Bấm vào một bản để xem lớn hoặc duyệt (trên máy chủ).</span></li><li><span class="pn">6</span><span>Lưu prompt đã sửa.</span></li><li><span class="pn">7</span><span>Chọn nhà cung cấp, model, chất lượng; giá mỗi ảnh hiện ngay bên cạnh.</span></li><li><span class="pn">8</span><span>Sinh bản mới. Các bản cũ được giữ lại, không bị ghi đè.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Duyệt tất cả tham chiếu tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Sinh lại ảnh mặt Nora tập &lt;NN&gt; vì nốt ruồi sai bên</pre></div></div>
+</section>
+<section class="blk" id="04-phong-to">
+  <div class="shd"><span class="tagp">03</span><h2>Xem phóng to & đối chiếu</h2><span class="rt">Bước 05–06</span></div>
+  <p class="goal">Cách nhanh nhất để soát cả bộ ảnh: xem từng ảnh cỡ lớn ngay cạnh prompt của nó.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/04b_xem_phong_to.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/04b_xem_phong_to.jpg" alt="Xem phóng to &amp; đối chiếu" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:2.64%;top:3.11%">1</span><span class="pin" style="left:3.89%;top:50.00%">2</span><span class="pin" style="left:75.69%;top:26.67%">3</span><span class="pin" style="left:27.08%;top:95.11%">4</span><span class="pin" style="left:88.06%;top:3.11%">5</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Vị trí (#1/14), tên ảnh, trạng thái, đường dẫn.</span></li><li><span class="pn">2</span><span>Ảnh trước / ảnh sau. Dùng được phím ← →.</span></li><li><span class="pn">3</span><span>Khung hình và prompt chi tiết để so: tóc, trang phục, trang sức, nốt ruồi…</span></li><li><span class="pn">4</span><span>Dải ảnh thu nhỏ: bấm để nhảy tới ảnh bất kỳ.</span></li><li><span class="pn">5</span><span>Mở ngăn chi tiết của ảnh đang xem; Đóng hoặc phím Esc để thoát.</span></li></ol>
+  
+</section>
+<section class="blk" id="05-keyframes">
+  <div class="shd"><span class="tagp">04</span><h2>Tab Keyframes: khung hình từng shot</h2><span class="rt">Bước 06</span></div>
+  <p class="goal">Mỗi shot có 1–4 khung (Image 1, Image 2…), ứng với các góc cắt trong shot. Cách đọc giống tab Tham chiếu.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/05_tab_keyframes.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/05_tab_keyframes.jpg" alt="Tab Keyframes: khung hình từng shot" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:20.83%;top:38.44%">1</span><span class="pin" style="left:20.83%;top:68.44%">2</span><span class="pin" style="left:22.36%;top:71.11%">3</span><span class="pin" style="left:30.14%;top:64.67%">4</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Nhóm theo shot: <code>S01_A</code>, <code>0/2</code> = số khung đã duyệt.</span></li><li><span class="pn">2</span><span>Image 1 / Image 2 = khung mở đầu và khung ở mốc cắt trong shot.</span></li><li><span class="pn">3</span><span><b>Thiếu 1 ref</b> (chữ đỏ): ảnh tham chiếu dùng cho khung này chưa được duyệt. Duyệt tham chiếu trước.</span></li><li><span class="pn">4</span><span>Kính lúp: xem lớn, soát theo checklist 8 điểm.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo keyframe tập &lt;NN&gt; cảnh S01</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Sinh lại keyframe S01_B tập &lt;NN&gt; vì thừa một người</pre></div></div>
+</section>
+<section class="blk" id="06-vo">
+  <div class="shd"><span class="tagp">05</span><h2>Tab VO / Thoại: nghe và duyệt giọng</h2><span class="rt">Bước 07</span></div>
+  <p class="goal">Mỗi dòng là một câu thoại hoặc dẫn chuyện tiếng Anh. Nghe từng câu, kiểm tra cảm xúc và độ dài.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/06_tab_vo.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/06_tab_vo.jpg" alt="Tab VO / Thoại: nghe và duyệt giọng" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:23.06%;top:45.33%">1</span><span class="pin" style="left:30.69%;top:34.67%">2</span><span class="pin" style="left:38.06%;top:34.67%">3</span><span class="pin" style="left:47.92%;top:37.22%">4</span><span class="pin" style="left:79.86%;top:34.33%">5</span><span class="pin" style="left:94.17%;top:37.67%">6</span><span class="pin" style="left:91.67%;top:25.11%">7</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Trạng thái của file giọng.</span></li><li><span class="pn">2</span><span>Shot và người nói.</span></li><li><span class="pn">3</span><span>Giọng được gán (ví dụ Leda) và độ dài shot. Câu nói không được dài hơn shot.</span></li><li><span class="pn">4</span><span>Câu thoại; cảm xúc ghi trong ngoặc, ví dụ <i>(mocking smile)</i>.</span></li><li><span class="pn">5</span><span>Nghe thử.</span></li><li><span class="pn">6</span><span>Duyệt bản giọng này.</span></li><li><span class="pn">7</span><span>Sinh hàng loạt các câu còn thiếu hoặc đã đổi lời.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo giọng tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Đọc lại câu S01_B tập &lt;NN&gt;, giọng mỉa mai hơn</pre></div></div>
+</section>
+<section class="blk" id="07-shots">
+  <div class="shd"><span class="tagp">06</span><h2>Tab Shots: tư liệu đầu vào và clip</h2><span class="rt">Bước 08</span></div>
+  <p class="goal">Một hàng là một shot: keyframe, clip đã render, prompt chuyển động, thoại và giá. Đây là tab duy nhất có nút <b>mất thêm chi phí</b>.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/07_tab_shots.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/07_tab_shots.jpg" alt="Tab Shots: tư liệu đầu vào và clip" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:52.08%;top:27.00%">1</span><span class="pin" style="left:85.07%;top:27.00%">2</span><span class="pin" style="left:93.40%;top:27.00%">3</span><span class="pin" style="left:20.83%;top:42.22%">4</span><span class="pin" style="left:40.56%;top:50.00%">5</span><span class="pin" style="left:63.47%;top:36.67%">6</span><span class="pin" style="left:81.81%;top:36.67%">7</span><span class="pin" style="left:91.53%;top:36.67%">8</span><span class="pin" style="left:59.44%;top:48.22%">9</span><span class="pin" style="left:86.46%;top:63.67%">10</span><span class="pin" style="left:56.94%;top:67.67%">11</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Lọc: thiếu material · sẵn sàng · đã có clip · chưa có clip.</span></li><li><span class="pn">2</span><span>Bảng giá trực tiếp từ Yir.</span></li><li><span class="pn">3</span><span>Render mọi shot sẵn sàng: <b>mất thêm chi phí</b>, chỉ chạy được trên máy chủ.</span></li><li><span class="pn">4</span><span>Keyframe đầu vào kèm mốc thời gian (0–3s, 3–6s).</span></li><li><span class="pn">5</span><span>Clip hiện tại và số bản đã render (13 bản).</span></li><li><span class="pn">6</span><span>Trạng thái: sẵn sàng render / số clip đã có.</span></li><li><span class="pn">7</span><span>Chép prompt chuyển động.</span></li><li><span class="pn">8</span><span>Mở chi tiết shot (ảnh dưới).</span></li><li><span class="pn">9</span><span>Model, độ phân giải và giá của shot.</span></li><li><span class="pn">10</span><span>Câu thoại và nghe thử (dùng làm mẫu khẩu hình).</span></li><li><span class="pn">11</span><span>Material gửi cho model video: các khung và ảnh tham chiếu.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Báo giá video tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Render video tập &lt;NN&gt; cảnh S01</pre></div></div>
+</section>
+<section class="blk" id="08-chi-tiet-shot">
+  <div class="shd"><span class="tagp">07</span><h2>Chi tiết shot: so sánh các bản clip</h2><span class="rt">Bước 08</span></div>
+  <p class="goal">Mọi bản render đều được giữ lại. Ở đây so các bản để chọn bản tốt nhất, thay vì render lại.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/08_ngan_chi_tiet_shot.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/08_ngan_chi_tiet_shot.jpg" alt="Chi tiết shot: so sánh các bản clip" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:52.78%;top:2.89%">1</span><span class="pin" style="left:91.53%;top:2.89%">2</span><span class="pin" style="left:56.94%;top:18.89%">3</span><span class="pin" style="left:72.92%;top:40.00%">4</span><span class="pin" style="left:54.17%;top:82.22%">5</span><span class="pin" style="left:57.29%;top:90.00%">6</span><span class="pin" style="left:92.92%;top:95.78%">7</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Mã shot, thời lượng, mô tả cú cắt.</span></li><li><span class="pn">2</span><span>Trạng thái shot.</span></li><li><span class="pn">3</span><span>Material đầu vào gửi Seedance (3 mục).</span></li><li><span class="pn">4</span><span>Prompt chuyển động đầy đủ.</span></li><li><span class="pn">5</span><span>Các bản clip đã render (trong <code>clips/</code> và <code>clips/raw/</code>). Bấm để xem.</span></li><li><span class="pn">6</span><span>Chọn bản tốt nhất làm bản chính.</span></li><li><span class="pn">7</span><span>Render bản mới: <b>mất thêm chi phí</b> (~$0.234 cho 6 giây ở 720p).</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Chọn bản clip tốt nhất cho S01_A tập &lt;NN&gt; và báo lý do</pre></div></div>
+</section>
+<section class="blk" id="09-hau-ky">
+  <div class="shd"><span class="tagp">08</span><h2>Tab Hậu kỳ / Cảnh: ghép thành phẩm</h2><span class="rt">Bước 09–10</span></div>
+  <p class="goal">Ghép các shot thành video từng cảnh, gắn phụ đề, nhạc nền và xuất gói Unity. Bước này không mất thêm chi phí.</p>
+  <figure class="shotfig"><a href="huong_dan_assets/asset_studio/09_tab_hau_ky.jpg" target="_blank" title="Mở ảnh gốc"><img src="huong_dan_assets/asset_studio/09_tab_hau_ky.jpg" alt="Tab Hậu kỳ / Cảnh: ghép thành phẩm" loading="lazy" width="1440" height="900"></a><span class="pin" style="left:51.04%;top:26.00%">1</span><span class="pin" style="left:74.65%;top:26.11%">2</span><span class="pin" style="left:83.68%;top:26.00%">3</span><span class="pin" style="left:93.26%;top:26.00%">4</span><span class="pin" style="left:28.40%;top:41.11%">5</span><span class="pin" style="left:28.40%;top:53.33%">6</span><span class="pin" style="left:80.42%;top:34.56%">7</span><span class="pin" style="left:91.25%;top:34.56%">8</span><span class="pin" style="left:44.44%;top:56.11%">9</span></figure>
+  <ol class="legend"><li><span class="pn">1</span><span>Lọc: đủ shot để ghép · đã ghép · chưa đủ shot.</span></li><li><span class="pn">2</span><span>Ngôn ngữ phụ đề gắn cứng vào video.</span></li><li><span class="pn">3</span><span>Xuất luôn vào <code>unity_export/</code>.</span></li><li><span class="pn">4</span><span>Ghép tất cả các cảnh đã đủ shot.</span></li><li><span class="pn">5</span><span>Video cảnh đã ghép. Bấm để xem.</span></li><li><span class="pn">6</span><span>Tình trạng thành phẩm: có BGM + SFX, 1080p, độ to (LUFS), phụ đề, đã vào <code>unity_export</code>.</span></li><li><span class="pn">7</span><span>Cảnh đã đủ clip cho mọi shot (4/4).</span></li><li><span class="pn">8</span><span>Ghép lại cảnh này.</span></li><li><span class="pn">9</span><span>Dòng thời gian các shot trong cảnh, kèm trạng thái khớp khẩu hình và câu thoại.</span></li></ol>
+  <div class="asks"><div class="k">Muốn làm gì thì gõ cho Hermes</div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Hậu kỳ tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Đóng gói Unity tập &lt;NN&gt;</pre></div></div>
+</section>
+<footer>Ảnh chụp từ Asset Studio ngày 25/11/2026, tập GM31. Giao diện có thể thay đổi; khi đó nhờ Hermes chụp lại và cập nhật trang này.</footer>
+</main>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.closest('.cmd').querySelector('pre').innerText.trim();
+  const done=()=>{b.textContent='Đã chép';b.classList.add('ok');setTimeout(()=>{b.textContent='Chép';b.classList.remove('ok')},1500)};
+  (navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(t):Promise.reject()).then(done).catch(()=>{
+    const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();done();});
+}));
+const links=[...document.querySelectorAll('aside a')].filter(a=>a.hash), byId=Object.fromEntries(links.map(a=>[a.hash.slice(1),a]));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove('on'));byId[e.target.id]?.classList.add('on')}}),{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(byId).forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
+</script>
+</body>
+</html>

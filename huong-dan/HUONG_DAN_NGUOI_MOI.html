@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quy trình sản xuất FMV — Hướng dẫn người mới</title>
+<link rel="stylesheet" href="huong_dan_assets/guide.css">
+</head>
+<body>
+<div class="shell">
+
+<aside>
+  <div class="brand">FMV Pipeline</div>
+  <div class="brand-sub">Hướng dẫn người mới · 11/2026</div>
+  <a href="#vao"><span>00</span>Truy cập</a>
+  <a href="#ban-do"><span>—</span>Bản đồ quy trình</a>
+  <a href="HUONG_DAN_ASSET_STUDIO.html" class="ext"><span>↗</span>Cách dùng Asset Studio</a>
+  <div class="navgrp"><i style="background:var(--pA)"></i>A · Kịch bản</div>
+  <a href="#s1"><span>01</span>Ý tưởng</a><a href="#s2"><span>02</span>Phác thảo mức 1</a><a href="#s3"><span>03</span>Trang duyệt</a><a href="#s4"><span>04</span>Chốt tập game</a>
+  <div class="navgrp"><i style="background:var(--pB)"></i>B · Hình &amp; giọng</div>
+  <a href="#s5"><span>05</span>Ảnh tham chiếu</a><a href="#s6"><span>06</span>Keyframe</a><a href="#s7"><span>07</span>Lồng tiếng</a>
+  <div class="navgrp"><i style="background:var(--pC)"></i>C · Video</div>
+  <a href="#s8"><span>08</span>Render video</a>
+  <div class="navgrp"><i style="background:var(--pD)"></i>D · Hậu kỳ</div>
+  <a href="#s9"><span>09</span>Hậu kỳ</a><a href="#s10"><span>10</span>Gói Unity</a>
+  <div class="navgrp"><i style="background:var(--faint)"></i>Tra cứu</div>
+  <a href="#file"><span>·</span>Thư mục</a><a href="#luat"><span>·</span>Luật vàng</a><a href="#phi"><span>·</span>Chi phí</a><a href="#loi"><span>·</span>Sự cố</a><a href="#tu"><span>·</span>Thuật ngữ</a>
+</aside>
+
+<main>
+
+<header id="vao">
+  <div class="eyebrow">Quy trình sản xuất · Game FMV tương tác 9:16</div>
+  <h1>Từ một ý tưởng đến gói bàn giao Unity</h1>
+  <p class="lede">Không cần biết code. Ở mỗi bước, bạn <b class="w">gõ một câu lệnh cho Hermes</b> rồi <b class="w">xem và duyệt kết quả</b>. Cả quy trình có 10 bước và 4 điểm dừng để duyệt. Chỉ bước 08 (render video) là mất thêm chi phí.</p>
+  <div class="access">
+    <div><div class="k">Giao việc</div><div class="t">Hermes dashboard</div><a href="http://192.168.250.45:9119">192.168.250.45:9119</a><div class="d">Chat với Hermes, xem file ở tab FILES.</div></div>
+    <div><div class="k">Xem tài nguyên</div><div class="t">Asset Studio</div><a href="http://192.168.250.45:5178">192.168.250.45:5178</a><div class="d">Ảnh, keyframe, giọng, clip. Từ máy khác chỉ xem được. <a href="HUONG_DAN_ASSET_STUDIO.html">Cách dùng →</a></div></div>
+    <div><div class="k">Duyệt kịch bản</div><div class="t">Trang review</div><a href="https://tviethung.github.io/kich-ban-review/">tviethung.github.io/<wbr>kich-ban-review</a><div class="d">Công khai, bình luận được theo từng khối.</div></div>
+  </div>
+  <div class="note n-tip"><b class="lab">Câu lệnh</b>Chỉ cần gõ câu ngắn như trong trang này, thay phần <code>&lt;…&gt;</code>. Hermes tự biết quy trình chi tiết (ghi trong <code>AGENTS.md</code>), xong mỗi bước sẽ gợi ý câu nên gõ tiếp. Quên đang ở bước nào thì gõ <code>Tập &lt;NN&gt; đang tới đâu</code>.</div>
+  <div class="note n-tip"><b class="lab">Đăng nhập</b>Hai link nội bộ dùng chung user <code>gplay</code> và mật khẩu được cấp. Khi bắt đầu việc mới, bấm <b class="w">New chat</b> trên dashboard để Hermes không lẫn việc cũ và đỡ tốn token.</div>
+  <div class="note n-warn"><b class="lab">Bảo mật</b>Chỉ dùng trong mạng LAN công ty. Ai đăng nhập được dashboard là chạy được lệnh trên máy chủ, nên không chia sẻ mật khẩu.</div>
+</header>
+
+<section class="blk" id="ban-do">
+  <div class="shd"><span class="tagp">MAP</span><h2>Bản đồ quy trình</h2><span class="rt">Bấm vào một bước để xem chi tiết</span></div>
+  <div class="map">
+    <div class="col" style="--pc:var(--pA)"><div class="bar"></div><div class="ph">PHẦN A</div><div class="pn">Kịch bản</div><div class="pc">Chỉ tốn token</div>
+      <a class="mstep" href="#s1"><b>01</b>Ý tưởng · logline</a><a class="mstep" href="#s2"><b>02</b>Phác thảo mức 1</a><a class="mstep" href="#s3"><b>03</b>Lên trang duyệt</a>
+      <div class="mgate">Duyệt kịch bản</div><a class="mstep" href="#s4"><b>04</b>Chốt thành tập GM</a></div>
+    <div class="col" style="--pc:var(--pB)"><div class="bar"></div><div class="ph">PHẦN B</div><div class="pn">Hình &amp; giọng</div><div class="pc">Mặc định $0</div>
+      <a class="mstep" href="#s5"><b>05</b>Ảnh tham chiếu</a><div class="mgate">Duyệt tham chiếu</div>
+      <a class="mstep" href="#s6"><b>06</b>Keyframe</a><a class="mstep" href="#s7"><b>07</b>Lồng tiếng · VO</a><div class="mgate">Duyệt storyboard</div></div>
+    <div class="col" style="--pc:var(--pC)"><div class="bar"></div><div class="ph">PHẦN C</div><div class="pn">Video</div><div class="pc">Mất thêm chi phí · Yir Gateway</div>
+      <a class="mstep" href="#s8"><b>08</b>Render từng shot</a><div class="mgate">Kiểm clip · không tự render lại</div></div>
+    <div class="col" style="--pc:var(--pD)"><div class="bar"></div><div class="ph">PHẦN D</div><div class="pn">Hậu kỳ</div><div class="pc">$0 · chạy trên máy</div>
+      <a class="mstep" href="#s9"><b>09</b>Ghép · phụ đề · nhạc</a><a class="mstep" href="#s10"><b>10</b>Gói Unity</a><div class="mgate done">Bàn giao</div></div>
+  </div>
+  <div class="maplegend"><span><i></i>Điểm dừng: chờ người duyệt rồi mới làm bước tiếp theo</span></div>
+</section>
+
+<!-- ===== A ===== -->
+<section class="blk" style="--pc:var(--pA)">
+  <div class="shd"><span class="tagp">PHẦN A</span><h2>Kịch bản</h2><span class="rt">Bước 01–04</span></div>
+
+  <article class="step" id="s1">
+    <div class="smeta"><div class="n">01</div><div class="p">Mức 0</div><span class="chip c-tok">Ít token</span></div>
+    <div>
+      <h3>Ý tưởng: loạt logline</h3>
+      <p class="goal">Nhanh chóng có 5–10 ý tưởng, mỗi ý 2 câu, rồi chọn ý hay nhất. Chưa ghi gì vào file.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Trau chuốt ý tưởng: &lt;ý tưởng thô của bạn&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Cho 10 ý tưởng &lt;thể loại&gt;</pre></div>
+      <dl class="kv"><dt>Kết quả</dt><dd>Danh sách logline trong chat. Chọn 1 cái để làm tiếp.</dd></dl>
+    </div>
+  </article>
+
+  <article class="step" id="s2">
+    <div class="smeta"><div class="n">02</div><div class="p">Mức 1</div><span class="chip c-tok">Nhiều token</span></div>
+    <div>
+      <h3>Phác thảo: cốt truyện và các nhánh</h3>
+      <p class="goal">Viết đủ để duyệt truyện và chuyển sang game <b class="w">không phải viết lại</b>: thẻ tập, sơ đồ nhánh, mỗi cảnh là 1 node, cờ, kết cục. Chưa viết shot, góc máy hay prompt.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Phác thảo chi tiết cốt truyện và các nhánh &lt;tên ý tưởng&gt;</pre></div>
+      <dl class="kv">
+        <dt>Kết quả</dt><dd>File <code>y-tuong-kich-ban-notebook/&lt;slug&gt;.md</code> (mở ở tab FILES). Chưa đăng lên trang duyệt.</dd>
+        <dt>Thẻ tập</dt><dd>Thị trường &amp; tiền tệ · chế độ <code>house</code> (mặc định: 2 cờ manh mối, 4 kết chuẩn) hoặc <code>free</code> (1–3 cờ, tự chọn kết) · bối cảnh chính A–D · tối đa 5 nhân vật có tên · cờ · các kết cục <code>END_…</code></dd>
+        <dt>Bắt buộc</dt><dd>Mỗi khung hình tối đa 2 nhân vật có tên · không dùng thương hiệu thật · chỉ dùng cờ đúng/sai (không thanh máu, không đồng hồ đếm ngược thật).</dd>
+      </dl>
+      <div class="note n-tip"><b class="lab">Gợi ý</b>Các con số (số cảnh, thời lượng) chỉ để tham khảo, truyện hay mới là chính. Nếu lệch thì ghi vào mục "Ghi chú lệch chuẩn".</div>
+    </div>
+  </article>
+
+  <article class="step" id="s3">
+    <div class="smeta"><div class="n">03</div><div class="p">Review</div><span class="chip c-free">0 token nếu tự chạy</span></div>
+    <div>
+      <h3>Đưa lên trang duyệt, nhận góp ý</h3>
+      <p class="goal">Để cả nhóm đọc và bình luận từng cảnh. Hermes tự kiểm sơ đồ rồi đăng; muốn tự chạy không tốn token thì dùng lệnh terminal bên dưới.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Đưa &lt;tên truyện&gt; lên trang duyệt</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Sửa &lt;tên truyện&gt; theo góp ý: …</pre></div><div class="cmd term"><div class="hd"><em>Terminal · 0 token</em><button class="copy">Chép</button></div><pre>python y-tuong-kich-ban-notebook/them_vao_trang.py &lt;slug&gt;.md</pre></div>
+      <dl class="kv"><dt>Script tự làm</dt><dd>Kiểm tra sơ đồ (có lỗi thì dừng) → thêm truyện vào cuối danh sách → dựng lại trang → đăng lên GitHub Pages.</dd></dl>
+      <div class="note n-stop"><b class="lab">Điểm dừng</b>Người phụ trách phải nói rõ <b class="w">"đã duyệt"</b> hoặc <b class="w">"chốt"</b> thì mới sang bước 04. Trang duyệt là công khai, bản nháp ai có link cũng xem được.</div>
+    </div>
+  </article>
+
+  <article class="step" id="s4">
+    <div class="smeta"><div class="n">04</div><div class="p">Mức 3</div><span class="chip c-tok">Token vừa</span></div>
+    <div>
+      <h3>Chốt kịch bản thành tập game</h3>
+      <p class="goal">Chuyển phác thảo thành kịch bản sản xuất: chia shot và góc máy, viết thoại tiếng Anh, prompt ảnh/video, kèm bản tiếng Việt để duyệt.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Đưa kịch bản &lt;tên truyện&gt; sang làm kịch bản game</pre></div>
+      <dl class="kv">
+        <dt>Kết quả</dt><dd>Thư mục <code>kich-ban-game/&lt;NN&gt;_&lt;slug&gt;/</code>, gồm <code>KICH_BAN_VI.md</code> (bản tiếng Việt để đọc duyệt), <code>KICH_BAN.md</code>, <code>PROMPTS.md</code>, <code>project.json</code>, <code>scenes.json</code>, <code>STORYBOARD_REVIEW.html</code>.</dd>
+        <dt>Xem</dt><dd>Asset Studio → chọn tập → tab <b class="w">Kịch bản</b> (sơ đồ nhánh, các đường chơi).</dd>
+        <dt>Đạt khi</dt><dd>Validator báo <code>PASS … 0 errors</code>.</dd>
+      <dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#02-kich-ban">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+      <div class="note n-warn"><b class="lab">Lưu ý</b>File gốc là <code>scripts/episodes/gm&lt;NN&gt;_&lt;slug&gt;.mjs</code>. Mỗi lần compile, mọi file trong <code>kich-ban-game/&lt;NN&gt;_…/</code> đều bị ghi đè, nên muốn sửa kịch bản thì nhờ Hermes sửa file <code>.mjs</code>.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== B ===== -->
+<section class="blk" style="--pc:var(--pB)">
+  <div class="shd"><span class="tagp">PHẦN B</span><h2>Hình ảnh &amp; giọng</h2><span class="rt">Bước 05–07</span></div>
+
+  <article class="step" id="s5">
+    <div class="smeta"><div class="n">05</div><div class="p">References</div><span class="chip c-free">Mặc định $0</span></div>
+    <div>
+      <h3>Ảnh tham chiếu: nhân vật, bối cảnh, đạo cụ</h3>
+      <p class="goal">Bộ ảnh chuẩn của cả tập. Mọi keyframe về sau đều dựa vào đây, nên sai ở bước này là sai cả tập.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo tham chiếu tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Duyệt tất cả tham chiếu tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Sinh lại &lt;tên ảnh&gt; tập &lt;NN&gt; vì …</pre></div>
+      <dl class="kv">
+        <dt>Xem</dt><dd>Asset Studio → tab <b class="w">Tham chiếu</b>. Mỗi ảnh có một trong ba trạng thái: thiếu, nháp, đã duyệt.</dd>
+        <dt>Duyệt</dt><dd>Nhắn Hermes: <i>"Duyệt ảnh tham chiếu GM&lt;NN&gt;: … ; sinh lại &lt;tên&gt; vì &lt;lý do&gt;"</i>.</dd>
+        <dt>Kết quả</dt><dd>Ảnh đã duyệt nằm trong <code>references/</code>. Mọi bản sinh ra đều được giữ trong <code>_studio/history/</code> và không bị ghi đè.</dd>
+      <dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#03-tham-chieu">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+      <div class="note n-stop"><b class="lab">Điểm dừng</b>Phải duyệt xong <b class="w">toàn bộ</b> ảnh tham chiếu thì mới làm keyframe.</div>
+    </div>
+  </article>
+
+  <article class="step" id="s6">
+    <div class="smeta"><div class="n">06</div><div class="p">Keyframes</div><span class="chip c-free">Mặc định $0</span></div>
+    <div>
+      <h3>Keyframe: khung hình mở đầu của từng shot</h3>
+      <p class="goal">Mỗi shot (và mỗi góc cắt trong shot) có 1 ảnh dọc 1080×1920. Ở bước 08, video sẽ chuyển động tiếp từ ảnh này.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo keyframe tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo keyframe tập &lt;NN&gt; cảnh S01</pre></div>
+      <div class="cmd term"><div class="hd"><em>Terminal · tùy chọn</em><button class="copy">Chép</button></div><pre>node tools/asset_studio/studio.mjs kf S01_A_start S01_A_cut2 --ep &lt;NN&gt;</pre></div>
+      <dl class="kv"><dt>Xem</dt><dd>Asset Studio → tab <b class="w">Keyframes</b> hoặc <b class="w">Shots</b>.</dd>
+      <dt>Lỗi hay gặp</dt><dd>Thừa người · trang phục bị đổi · chữ sai chính tả · đạo cụ vừa vỡ vừa còn nguyên · tay méo.</dd><dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#05-keyframes">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+      <div class="note n-warn"><b class="lab">Chi phí</b>Mặc định dùng Nano Banana 2, miễn phí. Thêm <code>--yir</code> (GPT Image) là <b class="w">mất thêm chi phí</b>, chỉ dùng khi bản miễn phí không đạt.</div>
+    </div>
+  </article>
+
+  <article class="step" id="s7">
+    <div class="smeta"><div class="n">07</div><div class="p">Voice-over</div><span class="chip c-free">Thường $0</span></div>
+    <div>
+      <h3>Lồng tiếng: thoại và dẫn chuyện</h3>
+      <p class="goal">Tạo file giọng tiếng Anh cho từng câu. Giọng thoại của nhân vật trên hình còn được dùng làm mẫu khẩu hình khi render video.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Tạo giọng tập &lt;NN&gt;</pre></div>
+      <dl class="kv">
+        <dt>Kết quả</dt><dd>Thoại: <code>clips/&lt;shot&gt;_vo_en_&lt;N&gt;s.mp3</code>. Dẫn chuyện: <code>clips/&lt;shot&gt;_narrator_en.mp3</code> (ghép vào ở bước hậu kỳ).</dd>
+        <dt>Duyệt</dt><dd>Mở <code>STORYBOARD_REVIEW.html</code>: mỗi shot có ảnh, kịch bản, nút nghe và ô ghi chú. Nút <b class="w">Copy Báo Cáo Sửa</b> gom các ghi chú để dán lại cho Hermes.</dd>
+      <dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#06-vo">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+      <div class="note n-stop"><b class="lab">Điểm dừng</b>Duyệt xong storyboard (keyframe và giọng) rồi mới render video. Sửa ở bước này rẻ hơn sửa video rất nhiều.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== C ===== -->
+<section class="blk" style="--pc:var(--pC)">
+  <div class="shd"><span class="tagp">PHẦN C</span><h2>Video</h2><span class="rt">Bước 08</span></div>
+  <article class="step" id="s8">
+    <div class="smeta"><div class="n">08</div><div class="p">Render</div><span class="chip c-paid">Mất thêm chi phí</span></div>
+    <div>
+      <h3>Render video từng shot</h3>
+      <p class="goal">Dùng keyframe, prompt chuyển động và giọng để tạo clip 4–15 giây, render bằng Seedance qua Yir Gateway.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Báo giá video tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Render video tập &lt;NN&gt; cảnh S01</pre></div>
+      <dl class="kv">
+        <dt>Kết quả</dt><dd><code>clips/</code> chứa bản đang dùng; <code>clips/raw/</code> lưu vĩnh viễn mọi bản đã sinh.</dd>
+        <dt>Xem</dt><dd>Asset Studio → tab <b class="w">Shots</b> (chỉ xem, không có nút sinh video).</dd>
+        <dt>Chi phí</dt><dd>Khoảng $20–32 cho mỗi tập, ứng với 520–810 giây footage riêng (Seedance 2.0 Mini 720p). Luôn xin báo giá trước khi render.</dd>
+      <dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#07-shots">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+      <div class="note n-stop"><b class="lab">Điểm dừng</b>Hermes <b class="w">không bao giờ tự render lại</b>. Clip nào lỗi thì đọc báo cáo, xem có ghép được đoạn tốt từ các bản cũ không, rồi mới quyết định render lại shot nào.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== D ===== -->
+<section class="blk" style="--pc:var(--pD)">
+  <div class="shd"><span class="tagp">PHẦN D</span><h2>Hậu kỳ &amp; bàn giao</h2><span class="rt">Bước 09–10</span></div>
+
+  <article class="step" id="s9">
+    <div class="smeta"><div class="n">09</div><div class="p">Post</div><span class="chip c-free">$0</span></div>
+    <div>
+      <h3>Hậu kỳ: ghép cảnh, phụ đề, nhạc nền, lồng tiếng</h3>
+      <p class="goal">Ghép các shot thành video từng cảnh 1080p, thêm phụ đề chữ trắng kiểu FlickReels, trộn nhạc nền, và lồng tiếng Việt nếu cần.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Hậu kỳ tập &lt;NN&gt;</pre></div>
+      <div class="cmd term"><div class="hd"><em>Terminal · tùy chọn</em><button class="copy">Chép</button></div><pre>node tools/asset_studio/studio.mjs post S01 S02 --ep &lt;NN&gt; --sub vn --qa
+node tools/asset_studio/studio.mjs bgm --plan audio/sound_plan.json --ep &lt;NN&gt; --qa</pre></div>
+      <dl class="kv"><dt>Quy tắc</dt><dd>Giữ giọng gốc ở các shot nhép miệng · phụ đề không ghi tiếng động · nhạc nền tự nhỏ đi khi có thoại · lồng tiếng Việt giữ đúng tốc độ 1.00x.</dd><dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#09-hau-ky">Xem ảnh hướng dẫn tab này →</a></dd></dl>
+    </div>
+  </article>
+
+  <article class="step" id="s10">
+    <div class="smeta"><div class="n">10</div><div class="p">Unity</div><span class="chip c-free">$0</span></div>
+    <div>
+      <h3>Đóng gói cho Unity</h3>
+      <p class="goal">Gói cuối cùng giao cho người lập trình game.</p>
+      <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Đóng gói Unity tập &lt;NN&gt;</pre></div>
+      <div class="tree"><b>unity_export/</b>
+├─ videos/scenes/        <i>video từng cảnh (không có video từng shot)</i>
+├─ dub/en/  dub/vn/      <i>lồng tiếng</i>
+├─ sub/en/  sub/vn/      <i>phụ đề .srt + .json</i>
+├─ episode_manifest.json <i>sơ đồ nhánh + thời lượng thật cho Unity</i>
+└─ FMVEpisodePlayer.cs   <i>script phát tập trong Unity</i></div>
+      <dl class="kv"><dt>Tập mẫu</dt><dd>Các tập đã chạy hết quy trình: <code>kich-ban-game/31_tiec_cuoi_be_kinh/</code>, <code>06_…</code>, <code>15_…</code>.</dd></dl>
+    </div>
+  </article>
+</section>
+
+<!-- ===== Tra cứu ===== -->
+<section class="blk" id="file">
+  <div class="shd"><span class="tagp">REF</span><h2>File nằm ở đâu</h2></div>
+<div class="tree"><b>D:/Projects/Tiktok-Videos/</b>
+├─ y-tuong-kich-ban-notebook/       <i>01–03 · phác thảo &lt;slug&gt;.md, MAU_PHAC_THAO.md, them_vao_trang.py</i>
+├─ scripts/episodes/gm&lt;NN&gt;_*.mjs    <i>04 · file gốc của kịch bản game (chỉ sửa ở đây)</i>
+└─ kich-ban-game/&lt;NN&gt;_&lt;slug&gt;/       <i>04–10 · mọi thứ của một tập</i>
+   ├─ KICH_BAN_VI.md · KICH_BAN.md · PROMPTS.md · project.json · scenes.json   <i>tự sinh, không sửa tay</i>
+   ├─ STORYBOARD_REVIEW.html     <i>trang duyệt keyframe + giọng</i>
+   ├─ references/                <i>05</i>
+   ├─ keyframes/                 <i>06</i>
+   ├─ clips/  clips/raw/  audio/ <i>07–09</i>
+   ├─ unity_export/              <i>10</i>
+   └─ _studio/history/           <i>mọi bản đã sinh · không bao giờ xóa</i></div>
+</section>
+
+<section class="blk" id="luat">
+  <div class="shd"><span class="tagp">REF</span><h2>Luật vàng</h2></div>
+  <div class="rules">
+    <div class="do"><h3>Nên</h3><ul>
+      <li>Mở New chat cho mỗi việc mới</li>
+      <li>Dừng duyệt đủ 4 điểm rồi mới đi tiếp</li>
+      <li>Luôn hỏi báo giá trước khi render video</li>
+      <li>Ghi rõ mã tập <code>GM&lt;NN&gt;</code> và tên cảnh trong câu lệnh</li>
+      <li>Góp ý cụ thể: shot nào, sai gì, muốn sửa thế nào</li>
+    </ul></div>
+    <div class="dont"><h3>Không</h3><ul>
+      <li>Sửa tay file trong <code>kich-ban-game/&lt;NN&gt;_…/</code></li>
+      <li>Viết shot/prompt khi truyện chưa được duyệt</li>
+      <li>Làm keyframe khi ảnh tham chiếu chưa được duyệt</li>
+      <li>Cho Hermes tự render lại video</li>
+      <li>Xóa <code>clips/raw/</code> hoặc <code>_studio/history/</code></li>
+      <li>Tạo tập mới trong <code>short-drama/kich-ban-demo/</code> (thư mục cũ)</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="blk" id="phi">
+  <div class="shd"><span class="tagp">REF</span><h2>Chi phí từng bước</h2><span class="rt">Số liệu ước tính</span></div>
+  <table>
+    <tr><th>Bước</th><th>Tốn gì</th><th>Mức</th></tr>
+    <tr><td>01–02 · Ý tưởng, phác thảo</td><td>Token LLM</td><td>Phác thảo tốn nhiều nhất phần A (khoảng 10–15 nghìn token đầu ra)</td></tr>
+    <tr><td>03 · Trang duyệt</td><td>—</td><td>0 token nếu tự chạy script; vài trăm token nếu nhờ Hermes</td></tr>
+    <tr><td>04 · Chốt kịch bản</td><td>Token LLM</td><td>Vừa phải (viết file .mjs, sửa lỗi validator)</td></tr>
+    <tr><td>05–06 · Tham chiếu, keyframe</td><td>Ảnh</td><td>$0 nếu dùng mặc định; chỉ mất thêm chi phí khi chọn Yir/GPT Image</td></tr>
+    <tr><td>07 · Lồng tiếng</td><td>Gemini TTS</td><td>Thường $0 (dùng hạn mức miễn phí, tự đổi key)</td></tr>
+    <tr class="hot"><td>08 · Video</td><td>Yir Gateway</td><td>Khoảng $20–32 / tập</td></tr>
+    <tr><td>09–10 · Hậu kỳ, Unity</td><td>Máy tính</td><td>$0</td></tr>
+  </table>
+</section>
+
+<section class="blk" id="loi">
+  <div class="shd"><span class="tagp">REF</span><h2>Gặp sự cố</h2></div>
+  <table>
+    <tr><th>Hiện tượng</th><th>Cách xử lý</th></tr>
+    <tr><td>Không mở được hai link nội bộ</td><td>Kiểm tra máy chủ đang bật và đã đăng nhập Windows, máy của bạn cùng mạng LAN. Chạy <code>Test-NetConnection 192.168.250.45 -Port 9119</code>, rồi gửi kết quả kèm IP máy bạn cho người quản lý.</td></tr>
+    <tr><td>Asset Studio báo "Máy LAN chỉ được xem"</td><td>Đây là bình thường. Muốn duyệt hay sinh lại thì nhắn Hermes.</td></tr>
+    <tr><td>Hermes làm sai chỗ hoặc quên quy tắc</td><td>Mở New chat, ghi rõ tên file mẫu và mã tập trong câu lệnh.</td></tr>
+    <tr><td>Validator báo lỗi</td><td>Nhắn: <i>"Sửa hết lỗi validator tập &lt;NN&gt;"</i>.</td></tr>
+    <tr><td>Video bị lỗi</td><td>Chưa render lại vội. Xin báo cáo kiểm tra clip, xem các bản cũ trong <code>clips/raw/</code>, rồi chọn shot cần làm lại.</td></tr>
+  </table>
+</section>
+
+<section class="blk" id="tu">
+  <div class="shd"><span class="tagp">REF</span><h2>Thuật ngữ</h2></div>
+  <table>
+    <tr><th>Từ</th><th>Nghĩa</th></tr>
+    <tr><td>Logline</td><td>Tóm tắt truyện trong 1–2 câu: hook, twist, kết.</td></tr>
+    <tr><td>Node · cảnh</td><td>Đoạn video giữa hai lần chọn, khoảng 28–40 giây, gồm 3–5 shot.</td></tr>
+    <tr><td>Lựa chọn</td><td>Nút người chơi bấm ở cuối mỗi node để sang node khác.</td></tr>
+    <tr><td>Cờ (flag)</td><td>Dấu ghi lại việc đã làm hay chưa (vd. đã tìm thấy ví của bố). Cờ mở hoặc khóa các lựa chọn về sau.</td></tr>
+    <tr><td><code>house</code> · <code>free</code></td><td>Hai chế độ cờ. <code>house</code>: khung chuẩn với 2 cờ manh mối. <code>free</code>: tác giả tự đặt 1–3 cờ và tự chọn kết cục.</td></tr>
+    <tr><td>Kết cục <code>END_…</code></td><td>Node cuối của một đường chơi. Mỗi kết cục có điểm để chơi lại.</td></tr>
+    <tr><td>Shot · góc · beat</td><td>Shot là 1 clip render (4–15 giây). Trong một shot có thể cắt 1–4 góc máy, gọi là beat.</td></tr>
+    <tr><td>Tham chiếu (ref)</td><td>Ảnh chuẩn của nhân vật, bối cảnh, đạo cụ, để mọi keyframe trông nhất quán.</td></tr>
+    <tr><td>Keyframe</td><td>Ảnh mở đầu của một shot hoặc một góc. Video chuyển động tiếp từ ảnh này.</td></tr>
+    <tr><td>VO</td><td>Voice-over: giọng thoại hoặc giọng dẫn chuyện.</td></tr>
+    <tr><td>GM&lt;NN&gt;</td><td>Mã tập game. Ví dụ GM39 ứng với thư mục <code>kich-ban-game/39_&lt;slug&gt;/</code>.</td></tr>
+  </table>
+</section>
+
+<footer>Nguồn quy tắc: <code>AGENTS.md</code>, <code>MAU_PHAC_THAO.md</code>, <code>scripts/episodes/README.md</code>, skill <code>pov-fmv-video-pipeline</code> và <code>vertical-micro-drama-pipeline</code>. Khi các file này thay đổi, nhờ Hermes cập nhật lại trang này.</footer>
+</main>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.closest('.cmd').querySelector('pre').innerText.trim();
+  const done=()=>{b.textContent='Đã chép';b.classList.add('ok');setTimeout(()=>{b.textContent='Chép';b.classList.remove('ok')},1500)};
+  (navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(t):Promise.reject()).then(done).catch(()=>{
+    const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();done();});
+}));
+// scrollspy: tô sáng mục đang đọc ở thanh bên
+const links=[...document.querySelectorAll('aside a')], byId=Object.fromEntries(links.map(a=>[a.hash.slice(1),a]));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove('on'));byId[e.target.id]?.classList.add('on')}}),{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(byId).forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
+</script>
+</body>
+</html>
