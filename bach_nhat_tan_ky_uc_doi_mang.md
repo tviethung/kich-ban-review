@@ -1,4 +1,4 @@
-# KỊCH BẢN PHÂN NHÁNH — XUYÊN KHÔNG SỐNG HỘ: CÁI GIÁ CỦA HỆ THỐNG (Thanh Duệ cứu Tiêu Dực)
+# KỊCH BẢN PHÂN NHÁNH — BÁCH NHẬT TÁN: KÝ ỨC ĐỔI MẠNG
 
 | Thẻ tập | |
 |---|---|
@@ -72,7 +72,7 @@ flowchart TD
     CHK -->|"Đã đổi ở 2C hoặc 4C"| END_LIEN_MINH_DEN
 ```
 
-> Bản Word gốc là nguồn của S00 → S01_11B (giữ nguyên văn, kể cả dòng CAMERA). Từ S01_6A trở đi là phần viết tiếp; S02, S03_B, S04, S07, S10, S12 và 6 ending được viết dày lên từ bản tóm tắt của tác giả, giữ nguyên câu thoại chốt.
+> Tên cũ: "Thanh Duệ cứu Tiêu Dực" (bản Word `C:/Users/dan-ryu/kich_ban_ai_ma/Thanh Duệ cứu Tiêu Dực.docx`), tạm gọi "Xuyên không sống hộ: Cái giá của Hệ thống". Bản Word gốc là nguồn của S00 → S01_11B (giữ nguyên văn, kể cả dòng CAMERA). Từ S01_6A trở đi là phần viết tiếp; S02, S03_B, S04, S07, S10, S12 và 6 ending được viết dày lên từ bản tóm tắt của tác giả, giữ nguyên câu thoại chốt.
 
 ### Tuyến nhân vật
 #### TÔ THANH DUỆ - NỮ CHÍNH
