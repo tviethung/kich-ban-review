@@ -9,6 +9,7 @@
 | Chế độ trạng thái | `free` (truyện vòng lặp, không theo khung điều tra `house`) |
 | Bối cảnh chính | A: Căn hộ An 1503, tầng 15 (bàn làm việc + laptop, cửa ra vào có chốt an toàn, cửa phòng ngủ, cửa sổ nhìn xuống đường) · B: Hành lang tầng 15 + cầu thang bộ thoát hiểm (biển "TẦNG 12") · C: Lề đường trước tòa nhà trong mưa (chỉ cho cảnh Vy đứng dưới nhà) · Ngoại lệ cho `END_TRUE_SU_THAT`: phòng thẩm vấn đồn công an |
 | Nhân vật | `an_nguyen` An (27, biên tập viên podcast, sống một mình; áo len rộng màu kem, tai nghe đen quàng cổ) · `minh_tran` Minh (30, người yêu cũ; áo khoác gió đen ướt mưa, **vết sẹo dài trên cẳng tay trái**) · `vy_le` Vy (27, bạn thân, làm ca đêm ở đài phát thanh, sống ở căn hộ 1504 bên cạnh; **áo mưa vàng**) · "Người gọi" = An của vòng trước (cùng diễn viên `an_nguyen`, biến thể `an_vong_6`: tóc buộc lệch, mắt thâm, vệt máu khô trên tay áo len) |
+| Cờ là gì? | Cờ = điều người chơi đã biết hoặc đã có trong tay, game tự nhớ để mở/khóa lựa chọn về sau. Không hiện thanh điểm. **ĐÊM HÔM ĐÓ** (`dem_hom_do`): người chơi đã nghe Minh kể 8 tháng trước, lúc mất điện, An hoảng loạn và cầm dao rạch tay anh — tức An biết nỗi sợ bóng tối của chính mình nguy hiểm, nên lúc 2:47 cô không cầm dao. **BẰNG CHỨNG** (`bang_chung`): người chơi đã có đoạn camera cho thấy căn 1504 lúc 2:47, đủ để cảnh sát tin và tới đúng chỗ |
 | Cờ | `bang_chung=true`: đặt ở **3A** (cắm USB) hoặc **5A** (giữ Vy, lấy video đầy đủ), đọc ở **7B** — gợi ý khóa: "Bạn không có bằng chứng nào trong tay — không ai tin một cuộc gọi lúc 2 giờ sáng." / "You have no proof — nobody believes a 2 a.m. phone call." · `dem_hom_do=true`: đặt ở **2A** (cho Minh vào phòng ngủ) hoặc **4B** (gọi Minh), đọc ở kiểm tra sau **7B** — gợi ý khi thiếu: "Minh biết vì sao bạn sợ bóng tối — bạn chưa để anh ấy nói." / "Minh knows why you fear the dark — you never let him tell you." |
 | Kết cục | `END_TRUE_SU_THAT` (True, cần cả 2 cờ, chọn 7B) · `END_LOI_NHAN` (bittersweet, 7C) · `END_NGHI_PHAM` (sai — có bằng chứng nhưng thiếu `dem_hom_do`, 7B) · `END_KY_UC_BI_XOA` (vòng lặp — Karma, 7A, quay về `S01`, xóa cờ) · `END_CAU_THANG` (chết — Minh, 6A) |
 
@@ -27,20 +28,20 @@ flowchart TD
     C1 -->|"1B · Khóa chốt cửa, nghe tiếp điện thoại"| S1U["S01_USB · A · 2:20: Người gọi bảo nhìn dưới bàn · một chiếc USB lạ · Đừng cắm nó vào máy tính"]
 
     S1M --> C2{"LỰA CHỌN 2: Cho Minh vào phòng ngủ?"}
-    C2 -->|"2A · Để Minh mở cửa phòng ngủ (đặt dem_hom_do)"| S2["S02 · A · 2:24: AN_0217_FINAL.wav: Minh không phải người giết Vy, còn 23 phút · Vy gọi, đứng dưới mưa · bản ghi tự phát: Đừng để Vy vào nhà"]
+    C2 -->|"2A · Để Minh mở cửa phòng ngủ (đặt cờ ĐÊM HÔM ĐÓ: nghe Minh kể An từng rạch tay anh)"| S2["S02 · A · 2:24: AN_0217_FINAL.wav: Minh không phải người giết Vy, còn 23 phút · Vy gọi, đứng dưới mưa · bản ghi tự phát: Đừng để Vy vào nhà"]
     C2 -->|"2B · Chặn cửa, bảo Minh ra khỏi nhà"| S2
 
     S1U --> C3{"LỰA CHỌN 3: Cắm USB?"}
-    C3 -->|"3A · Cắm USB, trái lời người gọi (đặt bang_chung)"| S2
+    C3 -->|"3A · Cắm USB, trái lời người gọi (đặt cờ BẰNG CHỨNG: có đoạn camera căn 1504 lúc 2:47)"| S2
     C3 -->|"3B · Nghe lời, để USB lại"| S2
 
     S2 --> C4{"LỰA CHỌN 4: Ai đang nói thật?"}
     C4 -->|"4A · Mở cổng cho Vy lên"| S2V["S02_VY · A · 2:32: Vy ướt sũng: mày có nhận được cuộc gọi không? · video An cầm dao: Nếu Vy đến, đừng để cô ấy sống sót"]
-    C4 -->|"4B · Gọi Minh bắt giải thích (đặt dem_hom_do)"| S2M["S02_MINH · A · 2:32: Minh: Anh xin lỗi · cửa phòng ngủ bật mở, Minh đứng trong đó · con dao dưới gối và vết sẹo"]
+    C4 -->|"4B · Gọi Minh bắt giải thích (đặt cờ ĐÊM HÔM ĐÓ: nghe Minh kể An từng rạch tay anh)"| S2M["S02_MINH · A · 2:32: Minh: Anh xin lỗi · cửa phòng ngủ bật mở, Minh đứng trong đó · con dao dưới gối và vết sẹo"]
     C4 -->|"4C · Tự xuống gặp Vy"| S2C["S02_CAU_THANG · B · 2:34: Thang máy chết · tầng 12 đèn tắt · Vy nhắn: ĐỪNG XUỐNG, TAO KHÔNG Ở DƯỚI ĐÓ · tiếng bước chân đi lên"]
 
     S2V --> C5{"LỰA CHỌN 5: Giữ Vy hay đuổi Vy?"}
-    C5 -->|"5A · Giữ Vy lại, xin bản video đầy đủ (đặt bang_chung)"| S3["S03_LAN_THU_7 · A · 2:40: Mật khẩu trong bản ghi mở thư mục LẦN THỨ 7 · camera bàn làm việc ghi lại An ở cả ba lối đi, lần nào cũng bắt đầu lúc 2:17"]
+    C5 -->|"5A · Giữ Vy lại, xin bản video đầy đủ (đặt cờ BẰNG CHỨNG: có đoạn camera căn 1504 lúc 2:47)"| S3["S03_LAN_THU_7 · A · 2:40: Mật khẩu trong bản ghi mở thư mục LẦN THỨ 7 · camera bàn làm việc ghi lại An ở cả ba lối đi, lần nào cũng bắt đầu lúc 2:17"]
     C5 -->|"5B · Đuổi Vy về: tránh xa tao ra"| S3
 
     S2M --> S3
@@ -52,11 +53,11 @@ flowchart TD
     S3 --> S4["S04_247 · A · 2:47: Đoạn cuối: An vòng 6 nhìn vào camera: Người giết Vy là mày · tiếng nổ, mất điện · tiếng ngã sau vách 1504"]
     S4 --> C7{"LỰA CHỌN 7: Phá vỡ vòng lặp"}
     C7 -->|"7A · Xóa toàn bộ file ghi âm và video"| E_KU(["ENDING · Ký Ức Bị Xóa"])
-    C7 -->|"7B · (cần bang_chung: đi 3A hoặc 5A) Gọi cảnh sát, giao nộp bằng chứng"| CHK{"Kiểm tra: có dem_hom_do (đi 2A hoặc 4B)?"}
+    C7 -->|"7B · (cần cờ BẰNG CHỨNG: đi 3A hoặc 5A) Gọi cảnh sát, giao nộp bằng chứng"| CHK{"Kiểm tra: có cờ ĐÊM HÔM ĐÓ (đi 2A hoặc 4B)?"}
     C7 -->|"7C · Ghi âm một lời cảnh báo mới cho chính mình"| E_LN(["ENDING · Người Để Lại Lời Nhắn"])
 
-    CHK -->|"Có dem_hom_do"| E_TRUE(["TRUE ENDING · Sự Thật"])
-    CHK -->|"Chưa có dem_hom_do"| E_NP(["ENDING · Nghi Phạm"])
+    CHK -->|"Có cờ ĐÊM HÔM ĐÓ"| E_TRUE(["TRUE ENDING · Sự Thật"])
+    CHK -->|"Chưa có cờ ĐÊM HÔM ĐÓ"| E_NP(["ENDING · Nghi Phạm"])
 ```
 
 ---
@@ -96,7 +97,7 @@ MINH: "Em vẫn làm cái podcast đó à?… Anh nghĩ chúng ta cần nói v�
 Điện thoại An rung, tin nhắn từ số lạ: **"ĐỪNG ĐỂ ANH TA VÀO PHÒNG NGỦ."** An ngẩng lên: Minh đã đứng ngay trước cửa phòng ngủ, tay đặt trên nắm cửa.
 
 **[LỰA CHỌN 2 — Cho Minh vào phòng ngủ?]**
-* **2A (Gật đầu, để Minh mở cửa)** → `S02` · đặt `dem_hom_do`: Minh lật gối, rút ra con dao bếp. Anh kéo tay áo lên, để lộ vết sẹo: "Tám tháng trước, mất điện, em làm thế này với anh. Mỗi lần trời tối, em không còn là em." Anh bỏ dao vào túi áo khoác: "Anh qua nhà Vy bên cạnh. Có gì gọi anh."
+* **2A (Gật đầu, để Minh mở cửa)** → `S02` · đặt cờ `dem_hom_do` (ĐÊM HÔM ĐÓ): Minh lật gối, rút ra con dao bếp. Anh kéo tay áo lên, để lộ vết sẹo: "Tám tháng trước, mất điện, em làm thế này với anh. Mỗi lần trời tối, em không còn là em." Anh bỏ dao vào túi áo khoác: "Anh qua nhà Vy bên cạnh. Có gì gọi anh."
 * **2B (Đứng chắn cửa: "Anh ra khỏi nhà tôi ngay")** → `S02`: Minh nhìn cô rất lâu, rồi đi ra: "Anh ở nhà Vy bên cạnh. Đừng ngủ một mình đêm nay." Con dao vẫn nằm dưới gối.
 
 ### S01_USB · Bối cảnh A · NỘI · CĂN HỘ AN · 2:20
@@ -114,7 +115,7 @@ NGƯỜI GỌI: "Đừng cắm nó vào máy tính. Muốn biết sự thật th
 Cuộc gọi tắt. Ngoài cửa, tiếng bước chân Minh xa dần về phía căn hộ bên cạnh.
 
 **[LỰA CHỌN 3 — Cắm USB?]**
-* **3A (Cắm USB vào laptop, trái lời người gọi)** → `S02` · đặt `bang_chung`: trong USB là đoạn camera gốc của vòng 6 — hành lang tối, cửa căn hộ **1504** hé mở, đồng hồ góc hình **2:47**. An chép nó vào điện thoại.
+* **3A (Cắm USB vào laptop, trái lời người gọi)** → `S02` · đặt cờ `bang_chung` (BẰNG CHỨNG): trong USB là đoạn camera gốc của vòng 6 — hành lang tối, cửa căn hộ **1504** hé mở, đồng hồ góc hình **2:47**. An chép nó vào điện thoại.
 * **3B (Nghe lời, để USB lại dưới bàn)** → `S02`.
 
 ### S02 · Bối cảnh A (+ C qua cửa sổ) · NỘI · CĂN HỘ AN · 2:24
@@ -134,7 +135,7 @@ GIỌNG AN TRONG BẢN GHI: "Đừng để Vy vào nhà."
 
 **[LỰA CHỌN 4 — Ai đang nói thật?]**
 * **4A (Bấm mở cổng tòa nhà cho Vy lên)** → `S02_VY`.
-* **4B (Gọi Minh, bắt anh giải thích)** → `S02_MINH` · đặt `dem_hom_do`.
+* **4B (Gọi Minh, bắt anh giải thích)** → `S02_MINH` · đặt cờ `dem_hom_do` (ĐÊM HÔM ĐÓ).
 * **4C (Không tin ai, tự xuống gặp Vy)** → `S02_CAU_THANG`.
 
 ### S02_VY · Bối cảnh A · NỘI · CĂN HỘ AN · 2:32
@@ -155,7 +156,7 @@ An lùi lại.
 VY: "An… mày đã làm gì?"
 
 **[LỰA CHỌN 5 — Giữ Vy hay đuổi Vy?]**
-* **5A (Nắm tay Vy: "Ở lại. Gửi tao cả đoạn video")** → `S03_LAN_THU_7` · đặt `bang_chung`: video đầy đủ dài hơn đoạn Vy xem — nửa sau là hành lang tối, cửa **1504**, **2:47**. Vy gửi xong thì sang nhà bên thay đồ: "Năm phút. Tao ở ngay sát vách."
+* **5A (Nắm tay Vy: "Ở lại. Gửi tao cả đoạn video")** → `S03_LAN_THU_7` · đặt cờ `bang_chung` (BẰNG CHỨNG): video đầy đủ dài hơn đoạn Vy xem — nửa sau là hành lang tối, cửa **1504**, **2:47**. Vy gửi xong thì sang nhà bên thay đồ: "Năm phút. Tao ở ngay sát vách."
 * **5B ("Tránh xa tao ra. Về đi")** → `S03_LAN_THU_7`: Vy khóc, đi về căn hộ 1504 bên cạnh.
 
 ### S02_MINH · Bối cảnh A · NỘI · CĂN HỘ AN · 2:32
