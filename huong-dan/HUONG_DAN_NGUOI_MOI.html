@@ -35,7 +35,7 @@
   <p class="lede">Không cần biết code. Ở mỗi bước, bạn <b class="w">gõ một câu lệnh cho Hermes</b> rồi <b class="w">xem và duyệt kết quả</b>. Cả quy trình có 10 bước và 4 điểm dừng để duyệt. Chỉ bước 08 (render video) là mất thêm chi phí.</p>
   <div class="access">
     <div><div class="k">Giao việc</div><div class="t">Hermes dashboard</div><a href="http://192.168.250.45:9119">192.168.250.45:9119</a><div class="d">Chat với Hermes, xem file ở tab FILES.</div></div>
-    <div><div class="k">Xem tài nguyên</div><div class="t">Asset Studio</div><a href="http://192.168.250.45:5178">192.168.250.45:5178</a><div class="d">Ảnh, keyframe, giọng, clip. Từ máy khác chỉ xem được. <a href="HUONG_DAN_ASSET_STUDIO.html">Cách dùng →</a></div></div>
+    <div><div class="k">Xem tài nguyên</div><div class="t">Asset Studio</div><a href="http://192.168.250.45:5178">192.168.250.45:5178</a><div class="d">Ảnh, keyframe, giọng, clip. Máy khác đăng nhập là duyệt và sinh được. <a href="HUONG_DAN_ASSET_STUDIO.html">Cách dùng →</a></div></div>
     <div><div class="k">Duyệt kịch bản</div><div class="t">Trang review</div><a href="https://tviethung.github.io/kich-ban-review/">tviethung.github.io/<wbr>kich-ban-review</a><div class="d">Công khai, bình luận được theo từng khối.</div></div>
   </div>
   <div class="note n-tip"><b class="lab">Câu lệnh</b>Chỉ cần gõ câu ngắn như trong trang này, thay phần <code>&lt;…&gt;</code>. Hermes tự biết quy trình chi tiết (ghi trong <code>AGENTS.md</code>), xong mỗi bước sẽ gợi ý câu nên gõ tiếp. Quên đang ở bước nào thì gõ <code>Tập &lt;NN&gt; đang tới đâu</code>.</div>
@@ -174,7 +174,7 @@
       <div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Báo giá video tập &lt;NN&gt;</pre></div><div class="cmd"><div class="hd"><em>Gõ cho Hermes</em><button class="copy">Chép</button></div><pre>Render video tập &lt;NN&gt; cảnh S01</pre></div>
       <dl class="kv">
         <dt>Kết quả</dt><dd><code>clips/</code> chứa bản đang dùng; <code>clips/raw/</code> lưu vĩnh viễn mọi bản đã sinh.</dd>
-        <dt>Xem</dt><dd>Asset Studio → tab <b class="w">Shots</b> (chỉ xem, không có nút sinh video).</dd>
+        <dt>Xem</dt><dd>Asset Studio → tab <b class="w">Shots</b> (có nút render, mất thêm chi phí).</dd>
         <dt>Chi phí</dt><dd>Khoảng $20–32 cho mỗi tập, ứng với 520–810 giây footage riêng (Seedance 2.0 Mini 720p). Luôn xin báo giá trước khi render.</dd>
       <dt>Trên Studio</dt><dd><a href="HUONG_DAN_ASSET_STUDIO.html#07-shots">Xem ảnh hướng dẫn tab này →</a></dd></dl>
       <div class="note n-stop"><b class="lab">Điểm dừng</b>Hermes <b class="w">không bao giờ tự render lại</b>. Clip nào lỗi thì đọc báo cáo, xem có ghép được đoạn tốt từ các bản cũ không, rồi mới quyết định render lại shot nào.</div>
@@ -271,7 +271,7 @@ node tools/asset_studio/studio.mjs bgm --plan audio/sound_plan.json --ep &lt;NN&
   <table>
     <tr><th>Hiện tượng</th><th>Cách xử lý</th></tr>
     <tr><td>Không mở được hai link nội bộ</td><td>Kiểm tra máy chủ đang bật và đã đăng nhập Windows, máy của bạn cùng mạng LAN. Chạy <code>Test-NetConnection 192.168.250.45 -Port 9119</code>, rồi gửi kết quả kèm IP máy bạn cho người quản lý.</td></tr>
-    <tr><td>Asset Studio báo "Máy LAN chỉ được xem"</td><td>Đây là bình thường. Muốn duyệt hay sinh lại thì nhắn Hermes.</td></tr>
+    <tr><td>Asset Studio báo "Máy LAN không được sửa Cài đặt"</td><td>Bình thường: Cài đặt (API key, thư mục) chỉ sửa trên máy chủ.</td></tr>
     <tr><td>Hermes làm sai chỗ hoặc quên quy tắc</td><td>Mở New chat, ghi rõ tên file mẫu và mã tập trong câu lệnh.</td></tr>
     <tr><td>Validator báo lỗi</td><td>Nhắn: <i>"Sửa hết lỗi validator tập &lt;NN&gt;"</i>.</td></tr>
     <tr><td>Video bị lỗi</td><td>Chưa render lại vội. Xin báo cáo kiểm tra clip, xem các bản cũ trong <code>clips/raw/</code>, rồi chọn shot cần làm lại.</td></tr>
