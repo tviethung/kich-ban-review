@@ -1,4 +1,4 @@
-# KỊCH BẢN PHÂN NHÁNH — KỊCH BẢN DIỆT MÔN, TA KHÔNG CHẤP NHẬN
+# KỊCH BẢN PHÂN NHÁNH — MỘT CHÉN RƯỢU, MỘT ĐỜI MỆNH
 
 | Thẻ tập | |
 |---|---|
@@ -72,7 +72,7 @@ flowchart TD
     CHK -->|"Đã đổi ở 2C hoặc 4C"| END_LIEN_MINH_DEN
 ```
 
-> Tên cũ: "Bách Nhật Tán: Ký ức đổi mạng", trước đó "Thanh Duệ cứu Tiêu Dực" (bản Word `C:/Users/dan-ryu/kich_ban_ai_ma/Thanh Duệ cứu Tiêu Dực.docx`), tạm gọi "Xuyên không sống hộ: Cái giá của Hệ thống". Bản Word gốc là nguồn của S00 → S01_11B (giữ nguyên văn, kể cả dòng CAMERA). Từ S01_6A trở đi là phần viết tiếp; S02, S03_B, S04, S07, S10, S12 và 6 ending được viết dày lên từ bản tóm tắt của tác giả, giữ nguyên câu thoại chốt.
+> Tên cũ: "Kịch bản diệt môn, ta không chấp nhận", trước đó "Bách Nhật Tán: Ký ức đổi mạng", "Thanh Duệ cứu Tiêu Dực" (bản Word `C:/Users/dan-ryu/kich_ban_ai_ma/Thanh Duệ cứu Tiêu Dực.docx`), tạm gọi "Xuyên không sống hộ: Cái giá của Hệ thống". Bản Word gốc là nguồn của S00 → S01_11B (giữ nguyên văn, kể cả dòng CAMERA). Từ S01_6A trở đi là phần viết tiếp; S02, S03_B, S04, S07, S10, S12 và 6 ending được viết dày lên từ bản tóm tắt của tác giả, giữ nguyên câu thoại chốt.
 
 ### Tuyến nhân vật
 #### TÔ THANH DUỆ - NỮ CHÍNH
